@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #defade;
+}
+
+nav {
+    overflow: hidden;
+    float: right;
+    margin: 10px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;;
+}
+
+li {
+    display: inline;
+}
+
+li a, a:visited {
+    text-decoration: none;
+    color: blue;
+    margin-right: 5px;
+}
+
+.login-box {
+    width: 320px;
+    height: wrap;
+    background-color: cornsilk;
+    color: black;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    border-color: black;
+    border-style: double;
+    box-sizing: border-box;
+    padding-top: 10%;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+}
+
+.login-icon {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+}
+
+h2 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.login-box p {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.login-box input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.login-box input[type="text"], input[type="password"] {
+    border: none;
+    border-bottom: 1px solid #000;
+    background: transparent;
+    outline: none;
+    height: 35px;
+    font-size: 14px;
+}
+
+.login-box input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: turquoise;
+    font-size: 18px;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+.login-box input[type="submit"]:hover {
+    cursor: pointer;
+}
+
+.login-box a, a:visited {
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: blue;
+}
+
+.login-box input[type="radio"] {
+    width: auto;
+    margin-bottom: 15px;
+}
