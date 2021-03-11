@@ -1,0 +1,31 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.welcomeimmigrants {
+    background: url(../resources/images/welcome_visitors.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+    height: 120px;
+    width: 100%;
+}
+
+.welcomeimmigrants h1 {
+    color: #6808bd;
+    font-size: 50px;
+    font-family: Georgia, serif;
+    text-align: center;
+}
+
+.column h6 {
+    font-size: 20px;
+}
+
+.zoom a {
+    color: black;
+    font-size: 70px;
+}

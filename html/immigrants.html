@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<title>Immigrants</title>
+
+<head>
+    <link rel="stylesheet" href="../styles/immigrants.css">
+    <link rel="stylesheet" href="../styles/socialmedia.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+</head>
+
+<body>
+    <nav>
+        <div class="topnav">
+            <a href="../index.html">Home</a>
+            <a href="login.html">Login</a>
+            <a href="signup.html">Signup</a>
+            <a href="immigrants.html">Immigrant Services</a>
+            <a href="visitors.html">Visitor Services</a>
+            <a href="#our-partners">Our Partners</a>
+            <a href="#blog">Blog</a>
+            <a href="#contact-us">Contact Us</a>
+            <a href="#about-us">About Us</a>
+        </div>
+    </nav>
+
+    <section>
+        <div class="welcomeimmigrants">
+            <h1>Welcome Immigrants</h1><br>
+        </div>
+    </section>
+
+    <section>
+        <div class="base1" style="margin-top: 5px;">
+            <h3><u>Menu</u></h3><br><br>
+            <div class="column">
+                <h6>TIPS<br> <br> <br> </h6>
+                <div class="zoom">
+                    <a href="#tips" style="color: black"><i class="fa fa-newspaper-o"></i></a>
+                </div>
+            </div>
+            <div class="column">
+                <h6>CONTRIBUTIONS<br> <br><br> </h6>
+                <div class="zoom">
+                    <a href="#contributions"><i class="fa fa-suitcase"></i></a>
+                </div>
+            </div>
+            <div class="column">
+                <h6>UPLOAD MEDIA<br> <br><br> </h6>
+                <div class="zoom">
+                    <a href="#upload"><i class="fa fa-file-image-o"></i></a>
+                </div>
+            </div>
+            <div class="column">
+                <h6>PLACES TO VISIT <br> <br> <br></h6>
+                <div class="zoom">
+                    <a href="#places"><i class="fa fa-car"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="base2" id="tips">
+            <h3><u>Tips</u></h3><br><br>
+        </div>
+    </section>
+
+    <section>
+        <div class="base1" id="contributions">
+            <h3><u>Contributions</u></h3><br><br>
+        </div>
+    </section>
+
+    <section>
+        <div class="base2" id="upload" style="height: 500px;">
+            <h3><u>Upload Photos and Videos</u></h3><br><br>
+        </div>
+    </section>
+
+    <section>
+        <div class="base1" id="places">
+            <h3><u>Places</u></h3><br><br>
+        </div>
+    </section>
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top <i class="fa fa-arrow-up"></i></button>
+
+</body>
+
+<script type="text/javascript">
+    //Get the button
+    var mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the buttonst
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+
+</html>
