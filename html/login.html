@@ -25,19 +25,61 @@
     <div class="login-box">
         <img src="../resources/icons/material-login-icon.png" class="login-icon">
         <h2>Login</h2>
-        <form action="submit">
+        <form onsubmit="return login(this);">
             <p>Username</p>
             <input type="text" name="username-field" placeholder="Username">
             <p>Password</p>
             <input type="password" name="password-field" placeholder="Password">
-            <input type="radio" id="super-admin-radio" name="role-radio" value="super-admin"><label for="super-admin-radio">Super Admin</label><br>
-            <input type="radio" id="admin-radio" name="role-radio" value="admin"><label for="admin-radio">Admin</label><br>
-            <input type="radio" id="immigrant-radio" name="role-radio" value="immigrant"><label for="immigrant-radio">Immigrant</label><br>
-            <input type="submit" name="" value="Login"><br>
-            <a href="#">Forgot password?</a><br>
-            <a href="signup.html">Don't have an account? Create one.</a>
+            <input type="radio" id="super-admin-radio" name="role-radio" value="super-admin"><label for="super-admin-radio"> Super Admin</label><br>
+            <input type="radio" id="admin-radio" name="role-radio" value="admin" checked><label for="admin-radio"> Admin</label><br>
+            <input type="radio" id="immigrant-radio" name="role-radio" value="immigrant"><label for="immigrant-radio"> Immigrant</label><br>
+            <input type="submit" name="" value="Login" onclick="return login()"><br>
+            <a href="#" id="forgot-password">Forgot password?</a><br>
+            <a href="signup.html" id="new-account">Don't have an account? Create one.</a>
         </form>
     </div>
 </body>
+
+<script>
+    function login(form) {
+        var username = form.elements["username-field"].value;
+        if ((username == "") || (username === undefined) || ([...username].length = 0)) {
+            alert("Please enter a valid username");
+            return false;
+        }
+        var password = form.elements["password-field"].value;
+        if ((password == "") || (password === undefined) || ([...password].length = 0)) {
+            alert("Please enter a valid password");
+            return false;
+        }
+        var role;
+        var role_element = document.getElementsByName('role-radio');
+        for (i = 0; i < role_element.length; i++) {
+            if (role_element[i].checked) {
+                role = role_element[i].value;
+            }
+        }
+        switch (role) {
+            case 'super-admin':
+                form.action = "superadmindashboard.html";
+                window.location.href = "superadmindashboard.html";
+                break;
+            case 'admin':
+                form.action = "admindashboard.html";
+                window.location.href = "admindashboard.html";
+                break;
+            case 'immigrant':
+                form.action = "immigrants.html";
+                window.location.href = "immigrants.html";
+                break;
+            default:
+                form.action = "login.html";
+                window.location.href = "login.html";
+                alert("Login failed!");
+                break;
+        }
+        return false;
+    }
+</script>
 
 </html>

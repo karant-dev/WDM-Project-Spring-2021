@@ -24,7 +24,7 @@
     <div class="signup-box">
         <img src="../resources/icons/material-login-icon.png" class="signup-icon">
         <h2>Signup</h2>
-        <form action="submit">
+        <form onsubmit="return signup(this);">
             <p>First name</p>
             <input type="text" name="fname-field" placeholder="First name">
             <p>Last name</p>
@@ -40,12 +40,70 @@
             <p>Phone</p>
             <input type="text" name="phone-field" placeholder="Phone">
             <br>
-            <input type="radio" id="admin-radio" name="role-radio" value="admin"><label for="admin-radio">Admin</label><br>
-            <input type="radio" id="immigrant-radio" name="role-radio" value="immigrant"><label for="immigrant-radio">Immigrant</label><br>
+            <input type="radio" id="admin-radio" name="role-radio" value="admin"><label for="admin-radio">
+                Admin</label><br>
+            <input type="radio" id="immigrant-radio" name="role-radio" value="immigrant" checked><label for="immigrant-radio"> Immigrant</label><br>
             <input type="submit" name="" value="Signup"><br>
             <a href="login.html">Already have an account? Login.</a>
         </form>
     </div>
 </body>
+
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+
+<!--// 05048AA9CB8C655DE103D89F5D7E98CB4364 // 6C45A2BF1876A24149007FD19363B5F775763EF021265DCB0ADEF78428C52FBF2CA77470CADE8261CA39286FDBA81750 // fa949447-0356-40ca-a69e-a7023306b485-->
+<script>
+    function signup(form) {
+        var f_name = form.elements["fname-field"].value;
+        if ((f_name == "") || (f_name === undefined) || ([...f_name].length = 0)) {
+            alert("Please enter a valid first name");
+            return false;
+        }
+        var l_name = form.elements["lname-field"].value;
+        if ((l_name == "") || (l_name === undefined) || ([...l_name].length = 0)) {
+            alert("Please enter a valid last name");
+            return false;
+        }
+        var username = form.elements["username-field"].value;
+        if ((username == "") || (username === undefined) || ([...username].length = 0)) {
+            alert("Please enter a valid username");
+            return false;
+        }
+        var password = form.elements["password-field"].value;
+        if ((password == "") || (password === undefined) || ([...password].length = 0)) {
+            alert("Please enter a valid password");
+            return false;
+        }
+        var email = form.elements["email-field"].value;
+        if ((email == "") || (email === undefined) || ([...email].length = 0) || (!email.includes('@'))) {
+            alert("Please enter a valid email");
+            return false;
+        }
+        var phone = form.elements["phone-field"].value;
+        if ((phone == "") || (phone === undefined) || ([...phone].length < 7)) {
+            alert("Please enter a valid phone number");
+            return false;
+        }
+        var role;
+        var role_element = document.getElementsByName('role-radio');
+        for (i = 0; i < role_element.length; i++) {
+            if (role_element[i].checked) {
+                role = role_element[i].value;
+            }
+        }
+
+        Email.send({
+            SecureToken: "29b8d27e-0091-4792-9c27-60dc9381a7a0",
+            To: email,
+            From: "wdmprojectspring2021@gmail.com",
+            Subject: "Registration for Immigrant portal",
+            Body: "<html><h2>Registration for Immigrants Portal Successful</h2><br><strong>Username: </strong><em>" + username + "</em><br><strong>Password: </strong><em>" + password + "</em><br><strong>User level: </strong><em>" + role + "</em><br></html>"
+        }).then(alert("Check your email for registration confirmation"));
+
+        form.action = "login.html";
+
+        return false;
+    }
+</script>
 
 </html>
