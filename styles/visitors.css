@@ -1,3 +1,9 @@
+/* 
+Thakkar,Karan Jeeten - 1001852000
+Talukdar, Shreyalaxmi - 1001862708
+Rathod, Abhijeet Umedsinh - 1001869833 
+*/
+
 * {
     padding: 0;
     margin: 0;
@@ -11,21 +17,63 @@
     background-size: cover;
     padding: 20px;
     height: 120px;
-    width: 100%;
 }
 
-.welcomevisitors h1 {
-    color: #6808bd;
-    font-size: 50px;
-    font-family: Georgia, serif;
+.imgplaces1 {
+    float: left;
+}
+
+.imgplaces2 {
+    float: right;
+}
+
+.ptv {
+    text-align: left;
+    border: 5px solid #6b696a;
+    height: 200px;
+    padding: 10px;
+    margin: 20px;
+}
+
+.contri {
+    border: 2px dashed black;
+    height: 250px;
+    padding: 10px;
+    margin: 20px;
+    text-align: left;
+}
+
+.uploadmedia {
+    border: 2px solid black;
+    height: 250px;
+    padding: 10px;
+    margin: 20px;
     text-align: center;
 }
 
-.column h6 {
-    font-size: 20px;
+.tipsadd {
+    border: 2px solid black;
+    height: 250px;
+    width: 400px;
+    padding: 10px;
+    margin: 20px;
+    text-align: center;
+    float: left;
 }
 
-.zoom a {
-    color: black;
-    font-size: 70px;
+.leftv {
+    width: 25%;
+}
+
+.rightv {
+    width: 75%;
+}
+
+
+/* Clear floats after the columns */
+
+.rowv:after {
+    content: "";
+    display: table;
+    clear: both;
 }
