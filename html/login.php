@@ -20,12 +20,16 @@ if (isset($_POST['login-button'])) {
         $_SESSION['username']=$username;
         //store query result to session
         $sqldata=mysqli_fetch_assoc($resultvalidate);
-        $_SESSION['id']=$sqldata["user_id"];
+        (int) $_SESSION['id']=$sqldata["user_id"];
         $_SESSION['firstname']=$sqldata["f_name"];
         $_SESSION['lastname']=$sqldata["l_name"];
         $_SESSION['role']=$sqldata["user_role"];
         $_SESSION['email']=$sqldata["email"];
-        if($_SESSION['role']=='admin') {
+        $_SESSION['onboarding']=$sqldata["onboarding"];
+        if($_SESSION['onboarding']==0) {
+            header('location:onboarding.php');
+        }
+        elseif($_SESSION['role']=='admin') {
             header('location:admindashboard.html');
         }
         elseif($_SESSION['role']=='superadmin') {
