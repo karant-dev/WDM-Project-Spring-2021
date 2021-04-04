@@ -16,17 +16,16 @@
             <a href="../index.html">Home</a>
             <a href="#immigrant-services">Immigrant Services</a>
             <a href="visitors.html">Visitor Services</a>
-            <a href="#our-partners">Our Partners</a>
             <a href="https://immigrantportalblog.wordpress.com/">Blog</a>
             <a href="contactus.html">Contact Us</a>
             <a href="aboutus.html">About Us</a>
-            <a href="#chat"> Chat </a>
+            <a href="chat.html"> Chat </a>
         </div>
     </nav>
 
     <section>
         <div class="welcomeimmigrants">
-            <h1 style="color:#932432;font-size:50px; font-family: Georgia, serif">Welcome Immigrants</h1><br>
+            <h1>Welcome Immigrants</h1><br>
         </div>
     </section>
 
@@ -69,8 +68,9 @@
 
             <div class="row">
                 <div class="tipsadd left">
-                    <p><b>Add tips you wish to share</b></p> <br><br><br>
-                    <i class="fa fa-pencil-square-o" style="font-size:45px; opacity: 0.4"></i>
+                    <p><b>Click to add tips you wish to share</b></p> <br><br><br>
+                    <i class="fa fa-pencil-square-o" style="font-size:45px; opacity: 0.4"></i><br><br>
+                    <a href="../html/tips.html"><button class="button button1"> Add Tips </button></a>
                 </div>
 
                 <div class="tipsadd right" style="width: 950px;">
@@ -111,13 +111,10 @@
                         <td>Feb 2020</td>
                     </tr>
 
-                    <tr>
-                        <td style="opacity: 0.3">Enter Category</td>
-                        <td style="opacity: 0.3">Enter Description</td>
-                        <td style="opacity: 0.3">Enter Year of contribution</td>
-                    </tr>
-
                 </table>
+                <br><br>
+                <p style="text-align: center;"><a href="../html/contributions.html"><button class="button button1"> Add Contributions </button> </a></p>
+
 
             </div>
         </div>
@@ -126,12 +123,34 @@
     <section>
         <div class="base2" id="upload" style="height: 500px;">
             <h3 style="color:#DE354C;font-size:30px;font-family: 'Times New Roman', Times, serif;"><u>Upload Photos and Videos</u></h3><br><br>
-            <p style="color: #3c1874;"> A moment lasts all of a second, but the memory lives on forever. Save your photos and videos here and share it with your loved ones! </p><br>
-            <a href='https://www.google.com/'><button class="button button1">Upload Photo or Video</button></a>
+            <p style="color: #3c1874;"> A moment lasts all of a second, but the memory lives on forever. Save your photos and videos here and share it with your loved ones! </p>
 
-            <div class="uploadmedia">
-                <p style="font-size: 25px"> Click / Drag to upload </p> <br><br>
-                <i class="fa fa-upload" style="font-size: 70px"></i>
+            <div class="uploadmedia" style="height: 340px;">
+                <form id="upload" action="../php/upload.php" method="POST" enctype="multipart/form-data">
+                    <fieldset>
+                        <br>
+                        <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000" />
+                        <label for="fileselect">Choose from your device:</label> <input type="file" id="fileselect" name="fileselect[]" multiple="multiple" /> <br><br>
+                        <div id="filedrag">
+                            <i class="fa fa-upload" style="font-size: 70px; opacity: 0.4"></i>
+                            <p style="font-size: 25px;opacity: 0.4">Drag to upload </p>
+                        </div>
+
+                        <div id="submitbutton">
+                            <button type="submit">Upload Files</button>
+                        </div>
+
+                    </fieldset>
+
+                </form>
+
+                <div id="progress"></div>
+
+                <div id="messages">
+                    <br>
+                    <p>Status Messages</p>
+                </div>
+
             </div>
 
         </div>
@@ -215,5 +234,7 @@
         document.documentElement.scrollTop = 0;
     }
 </script>
+
+<script src="../scripts/immigrants.js"></script>
 
 </html>

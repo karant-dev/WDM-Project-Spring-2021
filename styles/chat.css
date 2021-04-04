@@ -1,0 +1,33 @@
+/* 
+Thakkar,Karan Jeeten - 1001852000
+Talukdar, Shreyalaxmi - 1001862708
+Rathod, Abhijeet Umedsinh - 1001869833 
+*/
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+h1 {
+	font-size: 75px;
+	font-family: "Georgia", Courier;
+	color: #710e9c;
+}
+
+
+
+h2 {
+	font-size: 45px;
+	font-family: "Lucida Console", "Courier New", monospace;
+}

@@ -49,7 +49,7 @@ if (isset($_POST['submit_button'])) {
             $headers = "From: wdmprojectspring2021@gmail.com";
             if (mail($email, $subject, $body, $headers)) {
                 echo "Email successfully sent to $email.";
-                //header('location:Login.php');
+                header('location:Login.php');
             } 
             else {
                 echo "Email sending failed...";
@@ -77,8 +77,6 @@ if (isset($_POST['submit_button'])) {
             <a href="../index.html">Home</a>
             <a href="login.html">Login</a>
             <a href="signup.html">Signup</a>
-            <a href="immigrants.html">Immigrant Services</a>
-            <a href="visitors.html">Visitor Services</a>
             <a href="#our-partners">Our Partners</a>
             <a href="#blog">Blog</a>
             <a href="contactus.html">Contact Us</a>
