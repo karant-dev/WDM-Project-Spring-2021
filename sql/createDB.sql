@@ -22,6 +22,7 @@ CREATE TABLE Users (
     email varchar(50),
     phone varchar(12),
     city varchar(20),
+    username varchar(20),
     user_password varchar(100),
     address tinytext,
     home_state varchar(50),
