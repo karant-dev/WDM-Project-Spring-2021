@@ -75,25 +75,21 @@
 
 <script>
     function contactus(form) {
-        window.alert("entered script");
         var name = form.elements["name-field"].value;
         if ((name == "") || (name === undefined) || ([...name].length = 0)) {
             alert("Please enter a valid name");
             return false;
         }
-        window.alert(name);
         var email = form.elements["email-field"].value;
         if ((email == "") || (email === undefined) || ([...email].length = 0) || (!email.includes('@')) || (!email.includes('.'))) {
             alert("Please enter a valid email");
             return false;
         }
-        window.alert(email);
         var content = form.elements["content-field"].value;
         if ((content == "") || (content === undefined) || ([...content].length = 0)) {
             alert("Please enter queries to ask us");
             return false;
         }
-        window.alert(content);
 
         var subject = "Queries for Immigrans Portal";
         var body = "<html><h2>Query for Immigrants Portal Submitted Successfully</h2><br><strong>Query: </strong><em>" + content + "</em></html>";
