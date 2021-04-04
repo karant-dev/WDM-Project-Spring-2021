@@ -11,7 +11,7 @@ body {
     background-color: #defade;
 }
 
-.signup-box {
+.onboarding-box {
     width: wrap;
     height: wrap;
     background-color: cornsilk;
@@ -70,19 +70,19 @@ h2 {
     font-size: 22px;
 }
 
-.signup-box p {
+.onboarding-box p {
     margin: 0;
     padding: 0;
     font-weight: bold;
     display: inline;
 }
 
-.signup-box input {
+.onboarding-box input {
     width: 30%;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-.signup-box input[type="text"],
+.onboarding-box input[type="text"],
 input[type="password"] {
     border: none;
     border-bottom: 1px solid #000;
@@ -92,7 +92,7 @@ input[type="password"] {
     font-size: 14px;
 }
 
-.signup-box input[type="submit"] {
+.onboarding-box input[type="submit"] {
     border: none;
     outline: none;
     height: 40px;
@@ -104,11 +104,11 @@ input[type="password"] {
     transform: translate(110%);
 }
 
-.signup-box input[type="submit"]:hover {
+.onboarding-box input[type="submit"]:hover {
     cursor: pointer;
 }
 
-.signup-box a,
+.onboarding-box a,
 a:visited {
     text-decoration: none;
     font-size: 12px;
@@ -116,7 +116,7 @@ a:visited {
     color: blue;
 }
 
-.signup-box input[type="radio"] {
+.onboarding-box input[type="radio"] {
     width: auto;
     margin-bottom: 15px;
 }

@@ -5,6 +5,8 @@
     <title>Signup</title>
     <link rel="stylesheet" type="text/css" href="../styles/signup.css">
     <link rel="stylesheet" type="text/css" href="../styles/socialmedia.css">
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="../scripts/email.js"></script>
 </head>
 
 <body>
@@ -17,8 +19,8 @@
             <a href="visitors.html">Visitor Services</a>
             <a href="#our-partners">Our Partners</a>
             <a href="#blog">Blog</a>
-            <a href="#contact-us">Contact Us</a>
-            <a href="#about-us">About Us</a>
+            <a href="contactus.html">Contact Us</a>
+            <a href="aboutus.html">About Us</a>
         </div>
     </nav>
     <div class="signup-box">
@@ -34,16 +36,26 @@
             <input type="text" name="username-field" placeholder="Username">
             <p>Password</p>
             <input type="password" name="password-field" placeholder="Password">
-            <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+            <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <p>Email</p>
             <input type="text" name="email-field" placeholder="Email">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <p>Phone</p>
             <input type="text" name="phone-field" placeholder="Phone">
+            <br> &nbsp;&nbsp;
+            <p>Address</p>
+            <input type="text" name="addr-field" placeholder="Address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <p>City</p>
+            <input type="text" name="city-field" placeholder="City">
+            <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <p>State</p>
+            <input type="text" name="state-field" placeholder="State">&nbsp;&nbsp;&nbsp;
+            <p>Country</p>
+            <input type="text" name="country-field" placeholder="Country">
             <br>
             <input type="radio" id="admin-radio" name="role-radio" value="admin"><label for="admin-radio">
                 Admin</label><br>
             <input type="radio" id="immigrant-radio" name="role-radio" value="immigrant" checked><label for="immigrant-radio"> Immigrant</label><br>
-            <input type="submit" name="" value="Signup"><br>
+            <input type="submit" id="submit-btn" name="submit-button" value="Signup"><br>
             <a href="login.html">Already have an account? Login.</a>
         </form>
     </div>
@@ -92,13 +104,9 @@
             }
         }
 
-        Email.send({
-            SecureToken: "29b8d27e-0091-4792-9c27-60dc9381a7a0",
-            To: email,
-            From: "wdmprojectspring2021@gmail.com",
-            Subject: "Registration for Immigrant portal",
-            Body: "<html><h2>Registration for Immigrants Portal Successful</h2><br><strong>Username: </strong><em>" + username + "</em><br><strong>Password: </strong><em>" + password + "</em><br><strong>User level: </strong><em>" + role + "</em><br></html>"
-        }).then(alert("Check your email for registration confirmation"));
+        var subject = "Registration for Immigrant portal";
+        var body = "<html><h2>Registration for Immigrants Portal Successful</h2><br><strong>Username: </strong><em>" + username + "</em><br><strong>Password: </strong><em>" + password + "</em><br><strong>User level: </strong><em>" + role + "</em><br></html>";
+        sendEmail(email, subject, body);
 
         form.action = "login.html";
 

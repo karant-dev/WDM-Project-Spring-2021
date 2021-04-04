@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Onboarding</title>
+    <link rel="stylesheet" type="text/css" href="../styles/onboarding.css">
+    <link rel="stylesheet" type="text/css" href="../styles/socialmedia.css">
+</head>
+
+<body>
+    <nav>
+        <div class="topnav">
+            <a href="../index.html">Home</a>
+            <a href="#our-partners">Our Partners</a>
+            <a href="#blog">Blog</a>
+            <a href="#contact-us">Contact Us</a>
+            <a href="#about-us">About Us</a>
+            <a href="../index.html" style="float: right;">Logout</a>
+        </div>
+    </nav>
+    <div class="onboarding-box">
+        <img src="../resources/icons/material-login-icon.png" class="signup-icon">
+        <h2>Tell us about yourself</h2>
+        <form onsubmit="return onboard(this);">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <p>Address</p>&nbsp;&nbsp;
+            <input type="text" name="addr-field" placeholder="Address"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <p>City</p>&nbsp;&nbsp;
+            <input type="text" name="city-field" placeholder="City">
+            <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <p>State</p>&nbsp;&nbsp;
+            <input type="text" name="state-field" placeholder="State"> &nbsp;&nbsp;&nbsp;
+            <p>Country</p>&nbsp;&nbsp;
+            <input type="text" name="country-field" placeholder="Country">
+            <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <p>Work</p>&nbsp;&nbsp;
+            <input type="text" name="work-field" placeholder="Work" value="NA">
+            <p>Education</p>&nbsp;&nbsp;
+            <input type="text" name="education-field" placeholder="Education" value="NA">
+            <br>
+            <input type="submit" id="proceed-btn" name="proceed-button" value="Proceed"><br>
+        </form>
+    </div>
+</body>
+
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+
+<!--// 05048AA9CB8C655DE103D89F5D7E98CB4364 // 6C45A2BF1876A24149007FD19363B5F775763EF021265DCB0ADEF78428C52FBF2CA77470CADE8261CA39286FDBA81750 // fa949447-0356-40ca-a69e-a7023306b485-->
+<script>
+    function onboard(form) {
+        var addr = form.elements["addr-field"].value;
+        if ((addr == "") || (addr === undefined) || ([...addr].length = 0)) {
+            alert("Please enter a valid address");
+            return false;
+        }
+        var city = form.elements["city-field"].value;
+        if ((city == "") || (city === undefined) || ([...city].length = 0)) {
+            alert("Please enter a valid city name");
+            return false;
+        }
+        var state = form.elements["state-field"].value;
+        if ((state == "") || (state === undefined) || ([...state].length = 0)) {
+            alert("Please enter a valid state name");
+            return false;
+        }
+        var work = form.elements["work-field"].value;
+        if ((work == "") || (work === undefined) || ([...work].length = 0)) {
+            alert("Please enter a valid work credentials (NA if none)");
+            return false;
+        }
+        var edu = form.elements["education-field"].value;
+        if ((edu == "") || (edu === undefined) || ([...edu].length = 0)) {
+            alert("Please enter a valid education (NA if none)");
+            return false;
+        }
+        var phone = form.elements["phone-field"].value;
+        if ((phone == "") || (phone === undefined) || ([...phone].length < 7)) {
+            alert("Please enter a valid phone number");
+            return false;
+        }
+        var role;
+        var role_element = document.getElementsByName('role-radio');
+        for (i = 0; i < role_element.length; i++) {
+            if (role_element[i].checked) {
+                role = role_element[i].value;
+            }
+        }
+
+        Email.send({
+            SecureToken: "29b8d27e-0091-4792-9c27-60dc9381a7a0",
+            To: email,
+            From: "wdmprojectspring2021@gmail.com",
+            Subject: "Registration for Immigrant portal",
+            Body: "<html><h2>Registration for Immigrants Portal Successful</h2><br><strong>Username: </strong><em>" + username + "</em><br><strong>Password: </strong><em>" + password + "</em><br><strong>User level: </strong><em>" + role + "</em><br></html>"
+        }).then(alert("Check your email for registration confirmation"));
+
+        form.action = "login.html";
+
+        return false;
+    }
+</script>
+
+</html>

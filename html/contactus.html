@@ -2,10 +2,12 @@
 <html>
 
 <head>
+    <title>Contact us</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../styles/contactus.css">
     <link rel="stylesheet" type="text/css" href="../styles/socialmedia.css">
-    <title>Contact US page</title>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="../scripts/email.js"></script>
 </head>
 
 <body>
@@ -36,40 +38,71 @@
                     <div class="icon"><img src="../resources/icons/call.jpg"></div>
                     <div class="text">
                         <h3>Text or Call us</h3>
-                        <p>123-123-1234</p>
+                        <p style="color:black;">123-123-1234</p>
                     </div>
                 </div>
                 <div class="box">
                     <div class="icon"><img src="../resources/icons/mail.jpg"></div>
                     <div class="text">
                         <h3>Support</h3>
-                        <p>supportxyz@abc.com</p>
+                        <p style="color:black;">supportxyz@abc.com</p>
                     </div>
                 </div>
             </div>
 
             <div class="contactForm">
-                <form>
+                <form onsubmit="return contactus(this);">
                     <h2>Drop us a message</h2>
                     <div class="inputBox">
-                        <input type="text" name="" required="required">
-                        <span>Your Name</span>
+                        <input type="text" name="name-field" required="required" placeholder="Your Name">
                     </div>
                     <div class="inputBox">
-                        <input type="text" name="" required="required">
-                        <span>Email</span>
+                        <input type="text" name="email-field" required="required" placeholder="Email">
                     </div>
                     <div class="inputBox">
-                        <textarea required="required"></textarea>
-                        <span>What's on your mind?</span>
+                        <textarea required="required" name="content-field" placeholder="What's on your mind?"></textarea>
                     </div>
                     <div class="inputBox">
-                        <input type="submit" name="" value="Send">
+                        <input type="submit" name="submit-button" value="Send">
                     </div>
                 </form>
             </div>
         </div>
     </section>
 </body>
+
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+
+<script>
+    function contactus(form) {
+        window.alert("entered script");
+        var name = form.elements["name-field"].value;
+        if ((name == "") || (name === undefined) || ([...name].length = 0)) {
+            alert("Please enter a valid name");
+            return false;
+        }
+        window.alert(name);
+        var email = form.elements["email-field"].value;
+        if ((email == "") || (email === undefined) || ([...email].length = 0) || (!email.includes('@')) || (!email.includes('.'))) {
+            alert("Please enter a valid email");
+            return false;
+        }
+        window.alert(email);
+        var content = form.elements["content-field"].value;
+        if ((content == "") || (content === undefined) || ([...content].length = 0)) {
+            alert("Please enter queries to ask us");
+            return false;
+        }
+        window.alert(content);
+
+        var subject = "Queries for Immigrans Portal";
+        var body = "<html><h2>Query for Immigrants Portal Submitted Successfully</h2><br><strong>Query: </strong><em>" + content + "</em></html>";
+        sendEmail(email, subject, body);
+
+        form.action = "../index.html";
+
+        return false;
+    }
+</script>
 
 </html>
