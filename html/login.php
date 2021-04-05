@@ -25,8 +25,8 @@ if (isset($_POST['login-button'])) {
         $_SESSION['lastname']=$sqldata["l_name"];
         $_SESSION['role']=$sqldata["user_role"];
         $_SESSION['email']=$sqldata["email"];
-        $_SESSION['onboarding']=$sqldata["onboarding"];
-        if($_SESSION['onboarding']==0) {
+        $onboard=$_SESSION['onboarding']=$sqldata["onboarding"];
+        if($onboard==0) {
             header('location:onboarding.php');
         }
         elseif($_SESSION['role']=='admin') {

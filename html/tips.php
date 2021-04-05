@@ -1,3 +1,26 @@
+<?php
+
+session_start();
+
+include_once 'dbconnect.php';
+
+if (!isset($_SESSION['username'])){
+    header('location:Login.php');
+}
+
+$tip;
+$type='Tip';
+
+if (isset($_POST['post-button'])) {
+    $tip=$_POST['tip-input'];
+    $id=$_SESSION['id'];
+
+    $sqlinsert="INSERT INTO contributions (contribution_type, contribution, user_id) VALUES ('$type','$tip',$id)";
+    
+    mysqli_query($conn, $sqlinsert);
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -10,23 +33,23 @@
 <body>
     <nav>
         <div class="topnav">
-            <a href="../index.html">Home</a>
+            <a href="<?php switch($_SESSION['role']){ case 'admin':echo 'admindashboard.html';break; case 'superadmin': echo 'superadmin.html';break; case 'immigrant': echo 'immigrants.html'; break; case 'visitor': echo 'visitors.html'; break;}?>">Home</a>
             <a href="#our-partners">Our Partners</a>
             <a href="#">Tips</a>
-            <a href="contributions.html">Contributions</a>
+            <a href="contributions.php">Contributions</a>
             <a href="#blog">Blog</a>
-            <a href="#contact-us">Contact Us</a>
-            <a href="#about-us">About Us</a>
-            <a href="../index.html" style="float: right;">Logout</a>
+            <a href="contactus.html">Contact Us</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="logout.php" style="float: right;">Logout</a>
         </div>
     </nav>
     <ul id="top-options">
         <tr>
             <td>
-                <textarea id="tip-textarea" placeholder="Enter your tip here for the visitors to see!"></textarea>
+                <form method="POST" action="tips.php"><textarea id="tip-textarea" name="tip-input" placeholder="Enter your tip here for the visitors to see!"></textarea>
             </td>
             <td>
-                <button id="post-tip">Post Tip</button>
+                <button type="submit" name="post-button" id="post-tip">Post Tip</button></form>
             </td>
             <td>
                 <select name="sort-dropdown" id="sort-dropdown">

@@ -1,3 +1,26 @@
+<?php
+
+session_start();
+
+include_once 'dbconnect.php';
+
+if (!isset($_SESSION['username'])){
+    header('location:Login.php');
+}
+
+$contribution="";
+$type='Contribution';
+
+if (isset($_POST['post-button'])) {
+    $contribution=$_POST['contribution-input'];
+    $id=$_SESSION['id'];
+
+    $sqlinsert="INSERT INTO contributions (contribution_type, contribution, user_id) VALUES ('$type','$contribution',$id)";
+    
+    mysqli_query($conn, $sqlinsert);
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -10,23 +33,23 @@
 <body>
     <nav>
         <div class="topnav">
-            <a href="../index.html">Home</a>
+            <a href="<?php switch($_SESSION['role']){ case 'admin':echo 'admindashboard.html';break; case 'superadmin': echo 'superadmin.html';break; case 'immigrant': echo 'immigrants.html'; break; case 'visitor': echo 'visitors.html'; break;}?>">Home</a>
             <a href="#our-partners">Our Partners</a>
-            <a href="tips.html">Tips</a>
+            <a href="tips.php">Tips</a>
             <a href="#">Contributions</a>
-            <a href="#blog">Blog</a>
-            <a href="#contact-us">Contact Us</a>
-            <a href="#about-us">About Us</a>
-            <a href="../index.html" style="float: right;">Logout</a>
+            <a href="https://immigrantportalblog.wordpress.com/">Blog</a>
+            <a href="contactus.html">Contact Us</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="logout.php" style="float: right;">Logout</a>
         </div>
     </nav>
     <ul id="top-options">
         <tr>
             <td>
-                <textarea id="contribution-textarea" placeholder="Contribute here!"></textarea>
+                <form method="POST" action="contributions.php"><textarea id="contribution-textarea" name="contribution-input" placeholder="Contribute here!"></textarea>
             </td>
             <td>
-                <button id="post-contribution">Publish</button>
+                <button type="submit" name="post-button" id="post-contribution">Publish</button></form>
             </td>
             <td>
                 <select name="sort-dropdown" id="sort-dropdown">
