@@ -48,11 +48,12 @@ if (isset($_POST['submit_button'])) {
             $headers = "From: wdmprojectspring2021@gmail.com";
             if (mail($email, $subject, $body, $headers)) {
                 echo "Email successfully sent to $email.";
-                header('location:Login.php');
+                header('location:login.php');
             } 
             else {
                 echo "Email sending failed...";
-            }   
+            }
+            header('location:login.php')
         } 
     }
 }
@@ -74,10 +75,10 @@ if (isset($_POST['submit_button'])) {
     <nav>
         <div class="topnav">
             <a href="../index.html">Home</a>
-            <a href="login.html">Login</a>
-            <a href="signup.html">Signup</a>
+            <a href="login.php">Login</a>
+            <a href="signup.php">Signup</a>
             <a href="#our-partners">Our Partners</a>
-            <a href="#blog">Blog</a>
+            <a href="https://immigrantportalblog.wordpress.com/">Blog</a>
             <a href="contactus.html">Contact Us</a>
             <a href="aboutus.html">About Us</a>
         </div>

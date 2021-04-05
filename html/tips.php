@@ -37,7 +37,7 @@ if (isset($_POST['post-button'])) {
             <a href="#our-partners">Our Partners</a>
             <a href="#">Tips</a>
             <a href="contributions.php">Contributions</a>
-            <a href="#blog">Blog</a>
+            <a href="https://immigrantportalblog.wordpress.com/">Blog</a>
             <a href="contactus.html">Contact Us</a>
             <a href="aboutus.html">About Us</a>
             <a href="logout.php" style="float: right;">Logout</a>
