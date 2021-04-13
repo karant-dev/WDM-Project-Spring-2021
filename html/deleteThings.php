@@ -2,6 +2,11 @@
 
 session_start();
 
+if($_SESSION['role'] != 'admin') {
+    echo "<script>alert('Login as admin to access this page')</script>";
+    header('location:login.php');
+}
+
 include_once 'dbconnect.php';
 
 $username=$school_name=$hosp_name="";
