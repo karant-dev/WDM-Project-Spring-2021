@@ -39,21 +39,14 @@ if (isset($_POST['submit_button'])) {
         echo "<script>alert('Username already present')</script>";
     }
     else{
-        $sqlinsert="INSERT INTO users (f_name, l_name, email, user_role, phone, username, user_password, address, city, home_state, country_id) VALUES ('$firstname','$lastname','$email','$role','$phone','$username','$password','$addr','$city','$state', (SELECT country_id FROM countries WHERE name='$country'))";
+        $sqlinsert="INSERT INTO Users (f_name, l_name, email, user_role, phone, username, user_password, address, city, home_state, country_id) VALUES ('$firstname','$lastname','$email','$role','$phone','$username','$password','$addr','$city','$state', (SELECT country_id FROM Countries WHERE name='$country'))";
         if (mysqli_query($conn, $sqlinsert)) {
             echo "<script>alert('Registration was successful. Login Credentials are sent to $email.')</script>";
             //to send login credentials to the user
             $subject = "Login Credentials for Immigrants Portal";
             $body = "Hi, your Username is '".$username."' and password is '".$password."'.";
             $headers = "From: wdmprojectspring2021@gmail.com";
-            if (mail($email, $subject, $body, $headers)) {
-                echo "Email successfully sent to $email.";
-                header('location:login.php');
-            } 
-            else {
-                echo "Email sending failed...";
-            }
-            header('location:login.php')
+            header('location:login.php');
         } 
     }
 }
@@ -125,7 +118,7 @@ if (isset($_POST['submit_button'])) {
             Admin</label><br>
             <input type="radio" id="immigrant-radio" name="role-radio" value="immigrant" checked><label for="immigrant-radio"> Immigrant</label><br>
             <input type="submit" id="submit-btn" name="submit_button" value="Signup"><br>
-            <a href="login.html">Already have an account? Login.</a>
+            <a href="login.php">Already have an account? Login.</a>
         </form>
     </div>
 </body>

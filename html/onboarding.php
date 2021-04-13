@@ -16,8 +16,8 @@ if (isset($_POST['proceed-button'])) {
     $work=$_POST['work-field'];
     $education=$_POST['education-field'];
     $id=$_SESSION['id'];
-    $sqlinsert="INSERT INTO profiles (bio, interest, skills, work, education, user_id) VALUES ('$bio','$interests','$skills','$work','$education', $id)";
-    $sqlupdate="UPDATE users SET onboarding = 1 WHERE user_id = $id";
+    $sqlinsert="INSERT INTO Profiles (bio, interest, skills, work, education, user_id) VALUES ('$bio','$interests','$skills','$work','$education', $id)";
+    $sqlupdate="UPDATE Users SET onboarding = 1 WHERE user_id = $id";
 
     mysqli_query($conn, $sqlinsert);
     mysqli_query($conn, $sqlupdate);
@@ -30,6 +30,9 @@ if (isset($_POST['proceed-button'])) {
     }
     elseif($_SESSION['role']=='immigrant') {
         header('location:immigrants.html');
+    }
+    elseif($_SESSION['role']=='visitor') {
+        header('location:visitors.html');
     }
     else {
         header('location:login.php');

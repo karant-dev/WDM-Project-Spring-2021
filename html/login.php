@@ -12,7 +12,7 @@ if (isset($_POST['login-button'])) {
     $password=$_POST['password-field'];
 
     // check credentials
-    $sqlusercheck="SELECT * FROM users WHERE username='$username' AND user_password='$password' limit 1";
+    $sqlusercheck="SELECT * FROM Users WHERE username='$username' AND user_password='$password' limit 1";
     $resultvalidate = mysqli_query($conn,$sqlusercheck);
     $resultcount=mysqli_num_rows($resultvalidate);
     if($resultcount==1){
@@ -38,6 +38,9 @@ if (isset($_POST['login-button'])) {
         elseif($_SESSION['role']=='immigrant') {
             header('location:immigrants.html');
         }
+        elseif($_SESSION['role']=='visitor') {
+            header('location:visitors.html');
+        }
         else {
             header('location:login.php');
         }
@@ -62,12 +65,12 @@ if (isset($_POST['login-button'])) {
     <nav>
         <div class="topnav">
             <a href="../index.html">Home</a>
-            <a href="login.html">Login</a>
+            <a href="login.php">Login</a>
             <a href="signup.php">Signup</a>
             <a href="#our-partners">Our Partners</a>
-            <a href="#blog">Blog</a>
-            <a href="#contact-us">Contact Us</a>
-            <a href="#about-us">About Us</a>
+            <a href="https://immigrantportalblog.wordpress.com/">Blog</a>
+            <a href="contactus.html">Contact Us</a>
+            <a href="aboutus.html">About Us</a>
         </div>
     </nav>
 

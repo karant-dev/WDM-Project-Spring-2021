@@ -1,3 +1,4 @@
+
 <?php
 
 session_start();
@@ -15,7 +16,7 @@ if (isset($_POST['post-button'])) {
     $tip=$_POST['tip-input'];
     $id=$_SESSION['id'];
 
-    $sqlinsert="INSERT INTO contributions (contribution_type, contribution, user_id) VALUES ('$type','$tip',$id)";
+    $sqlinsert="INSERT INTO Contributions (contribution_type, contribution, user_id) VALUES ('$type','$tip',$id)";
     
     mysqli_query($conn, $sqlinsert);
 }
