@@ -89,7 +89,7 @@ if (isset($_POST['submit_button'])) {
             <br>
             <p>Username</p>
             <input type="text" id="uname" name="username-field" placeholder="Username" minlength="6" maxlength="10" name="Username" pattern="[a-zA-Z0-9]{6,10}" oninvalid="this.setCustomValidity(
-                'Username can contain uppercase letter, lowercase letter or number and must be of 6-16 characters')" oninput="this.setCustomValidity( '')" required>
+                'Username can contain uppercase letter, lowercase letter or number and must be of 6-10 characters')" oninput="this.setCustomValidity( '')" required>
             &nbsp;&nbsp;<p>Password</p>
             <input type="password" id="pwd" name="password-field" placeholder="Password" minlength="8" maxlength="10" name="Password" pattern="[a-zA-Z0-9!@#$%^*()_+=]{8,10}" oninvalid="this.setCustomValidity(
                 'Password can contain  uppercase letter, lowercase letter,special character(!@#$%^*()_+=) or number and must be of 8-10 characters')" oninput="this.setCustomValidity( '')" required>

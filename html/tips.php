@@ -1,4 +1,3 @@
-
 <?php
 
 session_start();
@@ -6,10 +5,10 @@ session_start();
 include_once 'dbconnect.php';
 
 if (!isset($_SESSION['username'])){
-    header('location:Login.php');
+    header('location:login.php');
 }
 
-$tip;
+$tip="";
 $type='Tip';
 
 if (isset($_POST['post-button'])) {
