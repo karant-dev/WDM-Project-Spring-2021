@@ -2,7 +2,7 @@
 
 session_start();
 
-include_once 'dbconnect.php';
+#include_once 'dbconnect.blade.php';
 
 $username=$password="";
 
@@ -61,13 +61,13 @@ if (isset($_POST['login-button'])) {
 <body>
     <nav>
         <div class="topnav">
-            <a href="../index.html">Home</a>
-            <a href="login.php">Login</a>
-            <a href="signup.php">Signup</a>
+            <a href="{{url('index')}}">Home</a>
+            <a href="{{url('login')}}">Login</a>
+            <a href="{{url('signup')}}">Signup</a>
             <a href="#our-partners">Our Partners</a>
             <a href="https://immigrantportalblog.wordpress.com/">Blog</a>
-            <a href="contactus.html">Contact Us</a>
-            <a href="aboutus.html">About Us</a>
+            <a href="{{url('contactus')}}">Contact Us</a>
+            <a href="{{url('aboutus')}}">About Us</a>
         </div>
     </nav>
 
@@ -84,7 +84,7 @@ if (isset($_POST['login-button'])) {
             <input type="radio" id="immigrant-radio" name="role-radio" value="immigrant" checked><label for="immigrant-radio"> Immigrant</label><br> -->
             <input type="submit" id="login-btn" name="login-button" value="Login"><br>
             <a href="#" id="forgot-password">Forgot password?</a><br>
-            <a href="signup.php" id="new-account">Don't have an account? Create one.</a>
+            <a href="{{url('signup')}}" id="new-account">Don't have an account? Create one.</a>
         </form>
     </div>
 </body>

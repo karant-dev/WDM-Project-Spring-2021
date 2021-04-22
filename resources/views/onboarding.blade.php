@@ -2,7 +2,7 @@
 
 session_start();
 
-include_once 'dbconnect.php';
+// include_once 'dbconnect.php';
 
 $bio=$interests=$skills=$dob=$work=$education="";
 

@@ -2,7 +2,7 @@
 
 session_start();
 
-include_once 'dbconnect.php';
+// include_once 'dbconnect.php';
 
 $f_name=$l_name=$email=$phone=$role=$username=$password=$addr=$state=$city=$country="";
 

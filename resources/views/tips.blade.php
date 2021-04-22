@@ -3,7 +3,7 @@
 
 session_start();
 
-include_once 'dbconnect.php';
+// include_once 'dbconnect.php';
 
 if (!isset($_SESSION['username'])){
     header('location:Login.php');
@@ -72,7 +72,7 @@ if (isset($_POST['post-button'])) {
     </ul>
     <div id="tips-container">
         <div class="tip">
-            Ask for 'Water without ice'<br>-posted by Sumukh 18 min ago
+            Posted by <?php $sqlfetch = "SELECT f_name FROM Users WHERE user_id IN (SELECT user_id FROM Contributions ORDER BY contribution_id DESC LIMIT 1)"; mysqli_query($conn, $sqlfetch); echo " at "; $sqlfetch = "SELECT posting_time FROM Contributions ORDER BY contribution_id DESC LIMIT 1"; mysqli_query($conn, $sqlfetch);?>
             <hr>Here in the US, when you ask a restaurant employee for a glass of water, it'll almost always come with ice, regardless of the weather. So, if you do not want ice, be sure to mention that.
         </div>
         <div class="tip">
