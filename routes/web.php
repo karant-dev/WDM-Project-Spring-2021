@@ -21,7 +21,7 @@ Route::get('/aboutus', function () {
     return view('aboutus');
 });
 
-Route::get('/admindashboard', function () {
+Route::get('admindashboard', function () {
     return view('admindashboard');
 });
 

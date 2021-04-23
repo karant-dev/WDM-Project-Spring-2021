@@ -1,20 +1,35 @@
-<?php
-
+@php
 session_start();
 
 #include_once 'dbconnect.blade.php';
 
+$servername = "localhost";
+$username = "root";
+$password = "pwdpwd";
+$database = "immigrantsportal";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
 $username=$password="";
 
-if (isset($_POST['login-button'])) {
+if (isset($_GET['login-button'])) {
     //receive all inputs from the form
-    $username=$_POST['username-field'];
-    $password=$_POST['password-field'];
+    $username=$_GET['username-field'];
+    $password=$_GET['password-field'];
+
+    echo "<script>alert('$username $password')</script>";
 
     // check credentials
     $sqlusercheck="SELECT * FROM Users WHERE username='$username' AND user_password='$password' limit 1";
     $resultvalidate = mysqli_query($conn,$sqlusercheck);
     $resultcount=mysqli_num_rows($resultvalidate);
+    echo "<script>alert('$resultcount')</script>";
     if($resultcount==1){
         //echo "<script>alert('Login successful')</script>";
         $_SESSION['username']=$username;
@@ -24,29 +39,41 @@ if (isset($_POST['login-button'])) {
         $_SESSION['firstname']=$sqldata["f_name"];
         $_SESSION['lastname']=$sqldata["l_name"];
         $_SESSION['role']=$sqldata["user_role"];
-        $_SESSION['email']=$sqldata["email"];
+        $email=$_SESSION['email']=$sqldata["email"];
         $onboard=$_SESSION['onboarding']=$sqldata["onboarding"];
+        echo "<script>alert('$email')</script>";
         if($onboard==0) {
-            header('location:onboarding.php');
+            redirect()->route('onboarding'); 
+            // $this->redirectTo = route('onboarding');
+            // header("{{url('onboarding')}}");
         }
         elseif($_SESSION['role']=='admin') {
-            header('location:admindashboard.html');
+            redirect()->route('admindashboard');
+            // $this->redirectTo = route('admindashboard');
+            // header("{{url('admindashboard')}}");
         }
         elseif($_SESSION['role']=='superadmin') {
-            header('location:superadmin.html');
+            redirect()->route('superadmin');
+            // $this->redirectTo = route('superadmin');
+            // header("{{url('superadmin')}}");
         }
         elseif($_SESSION['role']=='immigrant') {
-            header('location:immigrants.html');
+            redirect()->route('immigrant');
+            // $this->redirectTo = route('immigrant');
+            // header("{{url('immigrants')}}");
         }
         else {
-            header('location:login.php');
+            redirect()->route('login');
+            // $this->redirectTo = route('login');
+            // header("{{url('login')}}");
         }
     }
     else if($resultcount==0){
         echo "<script>alert('Invalid details. If you are new, sign up first.')</script>";
     }
 }
-?>
+@endphp
+
 
 <!DOCTYPE html>
 <html>
@@ -74,7 +101,7 @@ if (isset($_POST['login-button'])) {
     <div class="login-box">
         <img src="../resources/icons/material-login-icon.png" class="login-icon">
         <h2>Login</h2>
-        <form method="POST" action="login.php" onsubmit="return validate();">
+        <form method="GET" action="{{url('login')}}" onsubmit="return validate();">
             <p>Username</p>
             <input type="text" id="username" name="username-field" placeholder="Username" required>
             <p>Password</p>
