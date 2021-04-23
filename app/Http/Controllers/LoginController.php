@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\LoginUser;
+use App\Models\Users;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller {

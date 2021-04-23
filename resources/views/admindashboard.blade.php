@@ -1,107 +1,158 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Dashboard</title>
-    <link rel="stylesheet" type="text/css" href="{{ url('../styles/admindashboard.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ url('../styles/socialmedia.css') }}" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/f99306dc1c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url('../styles/admindashboard.css') }}" />
+    <link rel="stylesheet" href="{{ url('../styles/socialmedia.css') }}" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <title>Admin Dashboard</title>
 </head>
 
-<body>
+<body id="body">
     <nav>
         <div class="topnav">
-            <a href="../index">Home</a>
-            <a href="#">Manage Country</a>
+            <a href="#">Home</a>
             <a href="#our-partners">Our Partners</a>
-            <a href="#blog">Blog</a>
-            <a href="#contact-us">Contact Us</a>
-            <a href="#about-us">About Us</a>
+            <a href="https://immigrantportalblog.wordpress.com/">Blog</a>
+            <a href="contactus.html">Contact Us</a>
+            <a href="aboutus.html">About Us</a>
             <a href="logout.php" style="float: right;">Logout</a>
         </div>
     </nav>
 
-    <div class="stats-container">
-        <div class="stats-banner">
-            <img class="stats-icon" src="../resources/icons/users.png">
-            <h2 class="stats-number">1234</h2>
-            <h4 class="stats-name">Users</h4>
+    <div class="container">
+        <main>
+            <div class="main_container">
+                <!-- MAIN TITLE STARTS HERE -->
+
+                <div class="main_title">
+                    <img src="assets/hello.svg" alt="" />
+                    <div class="main__greeting">
+                        <h1>Hello, Admin</h1>
+                        <p>Welcome Home!</p>
+                    </div>
+                </div>
+
+                <!-- MAIN TITLE ENDS HERE -->
+
+                <!-- MAIN CARDS STARTS HERE -->
+                <div class="main_cards">
+                    <div class="card">
+                        <i class="fas fa-globe fa-2x text-red" aria-hidden="true"></i>
+                        <div class="cardInner">
+                            <p class="text-primary-p">Immigrants</p>
+                            <span class="font-bold text-title">201</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <i class="fas fa-globe-asia fa-2x text-red" aria-hidden="true"></i>
+                        <div class="cardInner">
+                            <p class="text-primary-p">Posts</p>
+                            <span class="font-bold text-title">169</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <i class="fas fa-city fa-2x text-yellow" aria-hidden="true"></i>
+                        <div class="cardInner">
+                            <p class="text-primary-p">Media</p>
+                            <span class="font-bold text-title">278</span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <i class="fa fa-server fa-2x text-green" aria-hidden="true"></i>
+                        <div class="cardInner">
+                            <p class="text-primary-p">Places of interest</p>
+                            <span class="font-bold text-title">89</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- MAIN CARDS ENDS HERE -->
+
+                <!-- CHARTS STARTS HERE -->
+                <div class="charts">
+                    <div class="charts_right">
+                        <div class="charts_right_title">
+                            <div>
+                                <h1>Manage</h1>
+                            </div>
+                        </div>
+
+                        <div class="charts_right_cards">
+                            <div class="card_1">
+                                <h1><i class="fas fa-globe" aria-hidden="true"></i>&nbsp;<a href="deleteThings.php">Remove Users</a></h1>
+                            </div>
+
+                            <div class="card_2">
+                                <h1><i class="fas fa-globe-asia" aria-hidden="true"></i>&nbsp;<a href="immigrantdet.php">Add Immigrant</a></h1>
+                            </div>
+
+                            <div class="card_3">
+                                <h1><i class="fas fa-city" aria-hidden="true"></i>&nbsp;<a href="school.php">Add School</a></h1>
+                            </div>
+
+                            <div class="card_4">
+                                <h1><i class="fa fa-server" aria-hidden="true"></i>&nbsp;<a href="hospital.php">Add Hospital</a></h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHARTS ENDS HERE -->
+            </div>
+        </main>
+        <!--
+        <div id="sidebar">
+            <div class="sidebar_title">
+                <div class="sidebar_img">
+                    <h1><a href="../index.html">Immigrant Portal</a></h1>
+                </div>
+                <i onclick="closeSidebar()" class="fa fa-times" id="sideBarIcon" aria-hidden="true"></i>
+            </div>
+
+            <div class="sidebar_menu">
+                <div class="sidebar_link active_menu">
+                    <i class="fa fa-home"></i>
+                    <a href="#">Dashboard</a>
+                </div>
+                <div class="sidebar_link">
+                    <i class="fas fa-globe" aria-hidden="true"></i>
+                    <a href="#">Continents and Countries</a>
+                </div>
+                <div class="sidebar_link">
+                    <i class="fas fa-globe-asia"></i>
+                    <a href="#">All Country Contributions</a>
+                </div>
+                <div class="sidebar_link">
+                    <i class="fas fa-city"></i>
+                    <a href="#">Schools and Hospitals by Country</a>
+                </div>
+                <div class="sidebar_link">
+                    <i class="fa fa-server"></i>
+                    <a href="#">Places to Visit</a>
+                </div>
+                <!-- <div class="sidebar_link">
+            <i class="fa fa-wrench"></i>
+            <a href="#">Services</a>
+          </div>
+          <div class="sidebar_link">
+            <i class="fa fa-file"></i>
+            <a href="#">Reports</a>
+          </div> -->
+        <!--  <div class="sidebar_logout">
+                    <i class="fa fa-power-off"></i>
+                    <a href="logout.php">Log out</a>
+                </div>
+            </div>
         </div>
-        <div class="stats-banner">
-            <img class="stats-icon" src="../resources/icons/post_filled.png">
-            <h2 class="stats-number">321</h2>
-            <h4 class="stats-name">Posts</h4>
-        </div>
-        <div class="stats-banner">
-            <img class="stats-icon" src="../resources/icons/image-posts.png">
-            <h2 class="stats-number">200</h2>
-            <h4 class="stats-name">Images</h4>
-        </div>
-        <div class="stats-banner">
-            <img class="stats-icon" src="../resources/icons/videos_outline.png">
-            <h2 class="stats-number">45</h2>
-            <h4 class="stats-name">Videos</h4>
-        </div>
-        <div class="stats-banner">
-            <img class="stats-icon" src="../resources/icons/landmark.png">
-            <h2 class="stats-number">21</h2>
-            <h4 class="stats-name">Landmarks</h4>
-        </div>
-        <div class="stats-banner">
-            <img class="stats-icon" src="../resources/icons/tips.png">
-            <h2 class="stats-number">69</h2>
-            <h4 class="stats-name">Tips</h4>
-        </div>
-    </div>
-    <ul id="top-options">
-        <tr>
-            <td>
-                <a href "#">Manage Contributions Immigrants</a>
-            </td>
-            <td>
-                <a href "#">Manage Schools and Hospitals</a>
-            </td>
-            <td>
-                <a href "#">Manage Places to visit</a>
-            </td>
-        </tr>
-    </ul>
-    <div class="chart">
-        <img src="../resources/images/pie-chart.png" alt="Pie Chart">
-    </div>
-    <br>
-    <p class="chart-label">Users by age</p>
-    <table id="user-ranking-table">
-        <tr>
-            <th>Rank</th>
-            <th>User</th>
-            <th>Posts</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>Shreyalaxmi Talukdar</td>
-            <td>36</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Abhijeet Rathod</td>
-            <td>29</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Karan Thakkar</td>
-            <td>20</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>Tushar Khair</td>
-            <td>13</td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>Nikunj Lotia</td>
-            <td>11</td>
-        </tr>
-    </table>
+    </div> -->
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <script src="../assets/js/dashboard.js"></script>
 </body>
 
 </html>

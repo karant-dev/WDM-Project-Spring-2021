@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\RegisterUser;
+use App\Models\Users;
+use App\Models\Countries;
 use Illuminate\Http\Request;
 use App\Mail\WelcomeMail;
 use Illuminate\Support\Facades\Mail;
 
 class SignupController extends Controller {
     public function index(Request $request) {
-        if(!isset($_SESSION)) 
-        { 
+        if(!isset($_SESSION)) { 
             session_start(); 
         } 
         $request->validate([
@@ -104,10 +104,12 @@ class SignupController extends Controller {
             $user->phone=$request->input('phone-field');
             $user->username=$request->input('username-field');
             $user->user_password=$request->input('password-field');
-            $user->addr=$request->input('addr-field');
+            $user->address=$request->input('addr-field');
             $user->city=$request->input('city-field');
-            $user->state=$request->input('state-field');
-            $user->country=$request->input('country-field');
+            $user->home_state=$request->input('state-field');
+            // $countryID = Countries::where('name' , $request->get('country-field'))->get();
+            // $countryID=(int)$countryID[0]['country_id'];
+            // $user->country_id=$request->input($countryID);
             $user->save();
             $_SESSION['alertMessage']= "Registration successful! Credentials have been sent to your email.";
             
@@ -124,3 +126,4 @@ class SignupController extends Controller {
         return redirect()->back();    
     }
 }
+?>

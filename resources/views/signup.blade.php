@@ -2,60 +2,12 @@
 
 session_start();
 
-// include_once 'dbconnect.php';
-
-$f_name=$l_name=$email=$phone=$role=$username=$password=$addr=$state=$city=$country="";
-
-//if submit button is clicked on registration page
-if (isset($_POST['submit_button'])) {
-    //Save all fields
-    $firstname=$_POST['fname-field'];
-    $lastname=$_POST['lname-field'];
-    $email=$_POST['email-field'];
-    $role=$_POST['role-radio'];
-    $phone=$_POST['phone-field'];
-    $username=$_POST['username-field'];
-    $password=$_POST['password-field'];
-    $addr=$_POST['addr-field'];
-    $city=$_POST['city-field'];
-    $state=$_POST['state-field'];
-    $country=$_POST['country-field'];
-
-    //query to check if email is already present
-    $sqlemailcheck="SELECT * FROM Users WHERE email='$email'";
-    $resultemail = mysqli_query($conn, $sqlemailcheck);
-    $emailcount=mysqli_num_rows($resultemail);
-
-    //query to check if username is already present
-    $sqleunamecheck="SELECT * FROM Users WHERE username='$username'";
-    $resultuname = mysqli_query($conn,$sqleunamecheck);
-    $unamecount=mysqli_num_rows($resultuname);
-
-    //perform insert if email or username does not exist already
-    if($emailcount>0){
-        echo "<script>alert('Email already present')</script>";
-    }
-    else if($unamecount>0){
-        echo "<script>alert('Username already present')</script>";
-    }
-    else{
-        $sqlinsert="INSERT INTO Users (f_name, l_name, email, user_role, phone, username, user_password, address, city, home_state, country_id) VALUES ('$firstname','$lastname','$email','$role','$phone','$username','$password','$addr','$city','$state', (SELECT country_id FROM countries WHERE name='$country'))";
-        if (mysqli_query($conn, $sqlinsert)) {
-            echo "<script>alert('Registration was successful. Login Credentials are sent to $email.')</script>";
-            //to send login credentials to the user
-            $subject = "Login Credentials for Immigrants Portal";
-            $body = "Hi, your Username is '".$username."' and password is '".$password."'.";
-            $headers = "From: wdmprojectspring2021@gmail.com";
-            if (mail($email, $subject, $body, $headers)) {
-                echo "Email successfully sent to $email.";
-            } 
-            else {
-                echo "Email sending failed...";
-            }
-            header('location:login.php');
-        } 
-    }
+if(isset($_SESSION['alertMessage'])) { 
+    $msg = $_SESSION['alertMessage'];
+    echo "<script type='text/javascript'>alert('$msg');</script>";
+    unset($_SESSION['alertMessage']);
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -63,29 +15,30 @@ if (isset($_POST['submit_button'])) {
 
 <head>
     <title>Signup</title>
-    <link rel="stylesheet" type="text/css" href="../styles/signup.css">
-    <link rel="stylesheet" type="text/css" href="../styles/socialmedia.css">
+    <link rel="stylesheet" type="text/css" href="{{url('../styles/signup.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url('../styles/socialmedia.css')}}">
     <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <script src="../scripts/email.js"></script>
-    <script src="../scripts/signup.js"></script>
+    <script src="{{url('../scripts/email.js')}}"></script>
+    <script src="{{url('../scripts/signup.js')}}"></script>
 </head>
 
 <body>
     <nav>
         <div class="topnav">
-            <a href="../index.html">Home</a>
-            <a href="login.php">Login</a>
-            <a href="signup.php">Signup</a>
+            <a href="/">Home</a>
+            <a href="/login">Login</a>
+            <a href="/signup">Signup</a>
             <a href="#our-partners">Our Partners</a>
             <a href="https://immigrantportalblog.wordpress.com/">Blog</a>
-            <a href="contactus.html">Contact Us</a>
-            <a href="aboutus.html">About Us</a>
+            <a href="/contactus">Contact Us</a>
+            <a href="/aboutus">About Us</a>
         </div>
     </nav>
     <div class="signup-box">
         <img src="../resources/icons/material-login-icon.png" class="signup-icon">
         <h2>Signup</h2>
-        <form id="signup-form" action="signup.php" method="POST" onsubmit="return validation();">
+        <form id="signup-form" action="/signup_user" method="POST" onsubmit="return validation();">
+            @csrf
             <p>First name</p>
             <input type="text" id="fname" name="fname-field" placeholder="First name" maxlength="20" pattern="[A-Za-z]{1,20}" oninvalid="this.setCustomValidity( 'First name can only contain alphabets')" oninput="this.setCustomValidity(
                 '')" required>
@@ -124,7 +77,7 @@ if (isset($_POST['submit_button'])) {
             Admin</label><br>
             <input type="radio" id="immigrant-radio" name="role-radio" value="immigrant" checked><label for="immigrant-radio"> Immigrant</label><br>
             <input type="submit" id="submit-btn" name="submit_button" value="Signup"><br>
-            <a href="login.php">Already have an account? Login.</a>
+            <a href="/login">Already have an account? Login.</a>
         </form>
     </div>
 </body>

@@ -41,12 +41,8 @@ Route::get('/immigrants', function () {
     return view('immigrants');
 });
 
-Route::get('/indexadm', function () {
-    return view('indexADM');
-});
-
-Route::get('/indexSadm', function () {
-    return view('indexSadm');
+Route::get('/onboarding', function () {
+    return view('onboarding');
 });
 
 Route::get('/superadmin', function () {
@@ -64,4 +60,11 @@ Route::get('/login', function () {
 Route::get('/signup', function () {
     return view('signup');
 });
+
+Route::post('/signup_user', 'App\Http\Controllers\SignupController@store');
+Route::post('/login_user', 'App\Http\Controllers\LoginController@index');
+
+Route::get('/logout', 'App\Http\Controllers\PageController@logout');
+
+?>
 
