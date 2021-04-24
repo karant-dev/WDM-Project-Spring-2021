@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if(isset($_SESSION['alertMessage'])) {
+    $msg = $_SESSION['alertMessage'];
+    echo "<script type='text/javascript'>alert('$msg');</script>";
+    unset($_SESSION['alertMessage']);
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <title>Visitors</title>

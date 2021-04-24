@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if(isset($_SESSION['alertMessage'])) {
+    $msg = $_SESSION['alertMessage'];
+    echo "<script type='text/javascript'>alert('$msg');</script>";
+    unset($_SESSION['alertMessage']);
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <title>Immigrants</title>
@@ -13,8 +23,7 @@
 
     <nav>
         <div class="topnav">
-            <a href="/">Home</a>
-            <a href="#immigrant-services">Immigrant Services</a>
+            <a href="#">Home</a>
             <a href="/visitors">Visitor Services</a>
             <a href="/tips">Tips</a>
             <a href="/contributions">Contributions</a>

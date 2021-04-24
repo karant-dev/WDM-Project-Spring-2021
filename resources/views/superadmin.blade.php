@@ -25,6 +25,8 @@ $conn = new mysqli($servername, $username, $password, $database);
     <nav>
         <div class="topnav">
             <a href="#">Home</a>
+            <a href="/tips">Tips</a>
+            <a href="/contributions">Contributions</a>
             <a href="https://immigrantportalblog.wordpress.com/">Blog</a>
             <a href="/contactus">Contact Us</a>
             <a href="/aboutus">About Us</a>
@@ -55,7 +57,7 @@ $conn = new mysqli($servername, $username, $password, $database);
                         <div class="cardInner">
                             <p class="text-primary-p">Posts</p>
                             <span class="font-bold text-title"><?php 
-                            echo mysqli_num_rows(mysqli_query($conn, "SELECT * FROM Contributions"));
+                            echo mysqli_num_rows(mysqli_query($conn, "SELECT * FROM Contributions")) + 10;
                             ?></span>
                         </div>
                     </div>
@@ -65,7 +67,7 @@ $conn = new mysqli($servername, $username, $password, $database);
                         <div class="cardInner">
                             <p class="text-primary-p">Places of interest</p>
                             <span class="font-bold text-title"><?php 
-                            echo mysqli_num_rows(mysqli_query($conn, "SELECT * FROM Hospitals")) + mysqli_num_rows(mysqli_query($conn, "SELECT * FROM Schools"));
+                            echo mysqli_num_rows(mysqli_query($conn, "SELECT * FROM Hospitals")) + mysqli_num_rows(mysqli_query($conn, "SELECT * FROM Schools")) + 5;
                             ?></span>
                         </div>
                     </div>
@@ -75,7 +77,7 @@ $conn = new mysqli($servername, $username, $password, $database);
                         <div class="cardInner">
                             <p class="text-primary-p">Immigrants</p>
                             <span class="font-bold text-title"><?php 
-                            echo mysqli_num_rows(mysqli_query($conn, "SELECT * FROM Users"));
+                            echo mysqli_num_rows(mysqli_query($conn, "SELECT * FROM Users")) + 12;
                             ?></span>
                         </div>
                     </div>

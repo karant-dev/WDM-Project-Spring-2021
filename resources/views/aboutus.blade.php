@@ -11,15 +11,14 @@
 <body>
     <nav>
         <div class="topnav">
-            <a href="../index">Home</a>
-            <a href="login">Login</a>
-            <a href="signup">Signup</a>
-            <a href="immigrants">Immigrant Services</a>
-            <a href="visitors">Visitor Services</a>
-            <a href="#our-partners">Our Partners</a>
-            <a href="#blog">Blog</a>
-            <a href="contactus">Contact Us</a>
-            <a href="aboutus">About Us</a>
+            <a href="/index">Home</a>
+            <a href="/login">Login</a>
+            <a href="/signup">Signup</a>
+            <a href="/immigrants">Immigrant Services</a>
+            <a href="/visitors">Visitor Services</a>
+            <a href="https://immigrantportalblog.wordpress.com/">Blog</a>
+            <a href="/contactus">Contact Us</a>
+            <a href="#">About Us</a>
         </div>
     </nav>
 

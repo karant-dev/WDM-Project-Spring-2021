@@ -15,7 +15,7 @@ class HospitalsController extends Controller {
         if(!isset($_SESSION)) { 
             session_start(); 
         } 
-        Schools::destroy(array('hospital_id', $hospital_id));
+        Hospitals::destroy(array('hospital_id', $hospital_id));
         $_SESSION['alertMessage']= "Hospital deleted successfully.";
         return redirect()->back();    
     }

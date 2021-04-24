@@ -2,22 +2,10 @@
 
 session_start();
 
-// include_once 'dbconnect.php';
-
-if (!isset($_SESSION['username'])){
-    header('location:Login.php');
-}
-
-$contribution="";
-$type='Contribution';
-
-if (isset($_POST['post-button'])) {
-    $contribution=$_POST['contribution-input'];
-    $id=$_SESSION['id'];
-
-    $sqlinsert="INSERT INTO contributions (contribution_type, contribution, user_id) VALUES ('$type','$contribution',$id)";
-    
-    mysqli_query($conn, $sqlinsert);
+if(isset($_SESSION['alertMessage'])) {
+    $msg = $_SESSION['alertMessage'];
+    echo "<script type='text/javascript'>alert('$msg');</script>";
+    unset($_SESSION['alertMessage']);
 }
 ?>
 
@@ -33,8 +21,7 @@ if (isset($_POST['post-button'])) {
 <body>
     <nav>
         <div class="topnav">
-            <a href="<?php switch($_SESSION['role']){ case 'admin':echo 'admindashboard.html';break; case 'superadmin': echo 'superadmin.html';break; case 'immigrant': echo 'immigrants.html'; break; case 'visitor': echo 'visitors.html'; break;}?>">Home</a>
-            <a href="#our-partners">Our Partners</a>
+            <a href="<?php switch($_SESSION['role']){ case 'admin':echo '/admindashboard';break; case 'superadmin': echo '/superadmin';break; case 'immigrant': echo '/immigrants'; break; case 'visitor': echo '/visitors'; break;}?>">Home</a>
             <a href="/tips">Tips</a>
             <a href="#">Contributions</a>
             <a href="https://immigrantportalblog.wordpress.com/">Blog</a>
@@ -46,7 +33,7 @@ if (isset($_POST['post-button'])) {
     <ul id="top-options">
         <tr>
             <td>
-                <form method="POST" action="contributions.php"><textarea id="contribution-textarea" name="contribution-input" placeholder="Contribute here!"></textarea>
+                <form method="POST" action="/addcontribution"><textarea id="contribution-textarea" name="contribution-input" placeholder="Contribute here!"></textarea>
             </td>
             <td>
                 <button type="submit" name="post-button" id="post-contribution">Publish</button></form>

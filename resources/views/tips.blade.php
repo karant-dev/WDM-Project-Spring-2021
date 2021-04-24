@@ -35,13 +35,12 @@ if (isset($_POST['post-button'])) {
     <nav>
         <div class="topnav">
             <a href="<?php switch($_SESSION['role']){ case 'admin':echo 'admindashboard.html';break; case 'superadmin': echo 'superadmin.html';break; case 'immigrant': echo 'immigrants.html'; break; case 'visitor': echo 'visitors.html'; break;}?>">Home</a>
-            <a href="#our-partners">Our Partners</a>
             <a href="#">Tips</a>
-            <a href="contributions.php">Contributions</a>
+            <a href="/contributions">Contributions</a>
             <a href="https://immigrantportalblog.wordpress.com/">Blog</a>
-            <a href="contactus.html">Contact Us</a>
-            <a href="aboutus.html">About Us</a>
-            <a href="logout.php" style="float: right;">Logout</a>
+            <a href="/contactus">Contact Us</a>
+            <a href="/aboutus">About Us</a>
+            <a href="/logout" style="float: right;">Logout</a>
         </div>
     </nav>
     <ul id="top-options">

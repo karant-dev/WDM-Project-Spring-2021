@@ -1,4 +1,13 @@
 <?php
+
+session_start();
+
+if(isset($_SESSION['alertMessage'])) {
+    $msg = $_SESSION['alertMessage'];
+    echo "<script type='text/javascript'>alert('$msg');</script>";
+    unset($_SESSION['alertMessage']);
+}
+
 $servername = "localhost";
 $username = "root";
 $password = "pwdpwd";
@@ -25,6 +34,8 @@ $conn = new mysqli($servername, $username, $password, $database);
     <nav>
         <div class="topnav">
             <a href="#">Home</a>
+            <a href="/tips">Tips</a>
+            <a href="/contributions">Contributions</a>
             <a href="https://immigrantportalblog.wordpress.com/">Blog</a>
             <a href="/contactus">Contact Us</a>
             <a href="/aboutus">About Us</a>

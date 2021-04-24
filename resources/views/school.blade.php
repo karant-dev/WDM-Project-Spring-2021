@@ -1,7 +1,11 @@
 <?php
 
 session_start();
-
+if(isset($_SESSION['alertMessage'])) {
+    $msg = $_SESSION['alertMessage'];
+    echo "<script type='text/javascript'>alert('$msg');</script>";
+    unset($_SESSION['alertMessage']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +22,7 @@ session_start();
 <body>
     <nav>
         <div class="topnav">
-            <a href="/admindashboard">Home</a>
+            <a href="<?php switch($_SESSION['role']){ case 'admin':echo '/admindashboard';break; case 'superadmin': echo '/superadmin';break; case 'immigrant': echo '/immigrants'; break; case 'visitor': echo '/visitors'; break;}?>">Home</a>
             <a href="https://immigrantportalblog.wordpress.com/">Blog</a>
             <a href="/contactus">Contact Us</a>
             <a href="/aboutus">About Us</a>
