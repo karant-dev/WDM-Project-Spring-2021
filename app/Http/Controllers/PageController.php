@@ -51,20 +51,28 @@ class PageController extends Controller
         return view('tips');
     }
 
-    public function delete(){
-        return view('deleteThings');
+    public function deleteUser(){
+        return view('deleteUsers');
+    }
+    
+    public function deleteSchool(){
+        return view('deleteSchools');
+    }
+    
+    public function deleteHospital(){
+        return view('deleteHospitals');
     }
 
     public function addHospital(){
-        return view('add_hospital');
+        return view('hospital');
     }
 
     public function addSchool(){
-        return view('add_school');
+        return view('school');
     }
 
     public function addUser(){
-        return view('add_user');
+        return view('immigrantdet');
     }
 
     public function logout(){

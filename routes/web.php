@@ -61,10 +61,39 @@ Route::get('/signup', function () {
     return view('signup');
 });
 
+Route::get('/deleteThings', function () {
+    return view('deleteThings');
+});
+
+Route::get('/immigrantdet', function () {
+    return view('immigrantdet');
+});
+
+Route::get('/school', function () {
+    return view('school');
+});
+
+Route::get('/hospital', function () {
+    return view('hospital');
+});
+
+
+// User Auth
 Route::post('/signup_user', 'App\Http\Controllers\SignupController@store');
 Route::post('/login_user', 'App\Http\Controllers\LoginController@index');
-
 Route::get('/logout', 'App\Http\Controllers\PageController@logout');
+
+// User CRUD
+Route::get('/userdelete/{user_id}', 'App\Http\Controllers\SignupController@destroy');
+Route::post('/adduser', 'App\Http\Controllers\SignupController@store');
+Route::get('/users', 'App\Http\Controllers\SignupController@showusers');
+
+// School Hospital CRUD
+Route::get('/schools', 'App\Http\Controllers\SignupController@showschools');
+Route::get('/hospitals', 'App\Http\Controllers\SignupController@showhospitals');
+Route::post('/addschool', 'App\Http\Controllers\SchoolsController@store');
+Route::post('/addhospital', 'App\Http\Controllers\HospitalsController@store');
+
 
 ?>
 

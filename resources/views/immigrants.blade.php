@@ -13,16 +13,16 @@
 
     <nav>
         <div class="topnav">
-            <a href="../index">Home</a>
+            <a href="/">Home</a>
             <a href="#immigrant-services">Immigrant Services</a>
-            <a href="visitors">Visitor Services</a>
-            <a href="tips.php">Tips</a>
-            <a href="contributions.php">Contributions</a>
+            <a href="/visitors">Visitor Services</a>
+            <a href="/tips">Tips</a>
+            <a href="/contributions">Contributions</a>
             <a href="https://immigrantportalblog.wordpress.com/">Blog</a>
-            <a href="contactus">Contact Us</a>
-            <a href="aboutus">About Us</a>
+            <a href="/contactus">Contact Us</a>
+            <a href="/aboutus">About Us</a>
             <a href="chat"> Chat </a>
-            <a href="logout.php" style="float: right;">Logout</a>
+            <a href="/logout" style="float: right;">Logout</a>
         </div>
     </nav>
 

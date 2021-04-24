@@ -9,6 +9,7 @@ use App\Mail\WelcomeMail;
 use Illuminate\Support\Facades\Mail;
 
 class SignupController extends Controller {
+
     public function index(Request $request) {
         if(!isset($_SESSION)) { 
             session_start(); 
@@ -64,9 +65,6 @@ class SignupController extends Controller {
     }
 
     public function store(Request $request) {
-        if(!isset($_SESSION)) { 
-            session_start(); 
-        } 
         $request->validate([
             'fname-field' => 'required',
             'lname-field'=> 'required',
@@ -82,7 +80,7 @@ class SignupController extends Controller {
         ]);
 
         //to check if the email already exists
-        $userEmailCheck = Users::where('email' , $request->get('email'))->get();
+        $userEmailCheck = Users::where('email' , $request->get('email-field'))->get();
 
         //to check if the username already exists
         $userUnameCheck = Users::where('username' , $request->get('username-field'))->get();
@@ -113,15 +111,27 @@ class SignupController extends Controller {
             $user->save();
             $_SESSION['alertMessage']= "Registration successful! Credentials have been sent to your email.";
             
-            return redirect('/login');    
+            return redirect()->back();
         }
     }
 
-    public function destroy(Users $user,$id) {
+    public function showusers(Users $user) {
+        return view('deleteUsers')->with('userArr', Users::all());
+    }
+    
+    public function showschools(Schools $school) {
+        return view('deleteSchools')->with('schoolArr', Schools::all());
+    }
+
+    public function showhospitals(Hospitals $hospital) {
+        return view('deleteHospitals')->with('hospitalArr', Hospitals::all());
+    }
+
+    public function destroy(Users $user, $user_id) {
         if(!isset($_SESSION)) { 
             session_start(); 
         } 
-        Users::destroy(array('user_id',$id));
+        Users::destroy(array('user_id', $user_id));
         $_SESSION['alertMessage']= "User deleted successfully.";
         return redirect()->back();    
     }

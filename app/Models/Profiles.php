@@ -3,15 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Profiles extends Model
-{
-    protected $table = 'Profiles';
-    public $timestamps = false;
+class Profiles extends Model {
     protected $primaryKey = 'profile_id';
-
-    public function user()
-    {
-        return $this->hasOne(Users::class, 'user_id');
-    }
+    public $timestamps = false;
+    use hasFactory;
 }

@@ -32,11 +32,7 @@ class LoginController extends Controller {
                 $_SESSION['lastname']=$userCheckDB[0]["l_name"];
                 $_SESSION['role']=$userCheckDB[0]["user_role"];
                 $_SESSION['email']=$userCheckDB[0]["email"];
-                $_SESSION['onboard']=$userCheckDB[0]["onboarding"];
-                if($_SESSION['onboard'] == 0) {
-                    return redirect('/onboarding');
-                }
-                elseif($_SESSION['role'] == 'admin') {
+                if($_SESSION['role'] == 'admin') {
                     return redirect('/admindashboard');
                 }
                 elseif($_SESSION['role']=='superadmin') {

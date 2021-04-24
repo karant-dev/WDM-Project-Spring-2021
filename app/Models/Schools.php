@@ -3,15 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Schools extends Model
-{
-    protected $table = 'Schools';
+class Schools extends Model {
+    protected $primaryKey = 'school_id';
     public $timestamps = false;
-    protected $primaryKey = 'user_id';
-
-    public function country()
-    {
-        return $this->hasOne(Counties::class, 'country_id');
-    }
+    use hasFactory;
 }

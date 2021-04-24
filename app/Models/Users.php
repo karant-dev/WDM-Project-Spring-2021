@@ -9,7 +9,7 @@ class Users extends Model
 {
     // protected $table = 'Users';
     public $timestamps = false;
-    // protected $primaryKey = 'user_id';
+    protected $primaryKey = 'user_id';
 
     // public function country()
     // {

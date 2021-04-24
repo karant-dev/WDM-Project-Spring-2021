@@ -3,15 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Contributions extends Model
-{
-    protected $table = 'Contributions';
+class Contributions extends Model {
+    use hasFactory;
     public $timestamps = false;
-    protected $primaryKey = 'contribution_id';
-
-    public function user()
-    {
-        return $this->hasOne(Users::class, 'user_id');
-    }
+    protected $primaryKey = 'contriution_id';
 }

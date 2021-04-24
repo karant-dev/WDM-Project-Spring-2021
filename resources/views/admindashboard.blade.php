@@ -1,3 +1,13 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "pwdpwd";
+$database = "immigrantsportal";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,9 +27,9 @@
             <a href="#">Home</a>
             <a href="#our-partners">Our Partners</a>
             <a href="https://immigrantportalblog.wordpress.com/">Blog</a>
-            <a href="contactus.html">Contact Us</a>
-            <a href="aboutus.html">About Us</a>
-            <a href="logout.php" style="float: right;">Logout</a>
+            <a href="/contactus">Contact Us</a>
+            <a href="/aboutus">About Us</a>
+            <a href="/logout" style="float: right;">Logout</a>
         </div>
     </nav>
 
@@ -44,7 +54,9 @@
                         <i class="fas fa-globe fa-2x text-red" aria-hidden="true"></i>
                         <div class="cardInner">
                             <p class="text-primary-p">Immigrants</p>
-                            <span class="font-bold text-title">201</span>
+                            <span class="font-bold text-title"><?php 
+                            echo mysqli_num_rows(mysqli_query($conn, "SELECT * FROM Users"));
+                            ?></span>
                         </div>
                     </div>
 
@@ -52,15 +64,9 @@
                         <i class="fas fa-globe-asia fa-2x text-red" aria-hidden="true"></i>
                         <div class="cardInner">
                             <p class="text-primary-p">Posts</p>
-                            <span class="font-bold text-title">169</span>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <i class="fas fa-city fa-2x text-yellow" aria-hidden="true"></i>
-                        <div class="cardInner">
-                            <p class="text-primary-p">Media</p>
-                            <span class="font-bold text-title">278</span>
+                            <span class="font-bold text-title"><?php 
+                            echo mysqli_num_rows(mysqli_query($conn, "SELECT * FROM Contributions"));
+                            ?></span>
                         </div>
                     </div>
 
@@ -68,7 +74,9 @@
                         <i class="fa fa-server fa-2x text-green" aria-hidden="true"></i>
                         <div class="cardInner">
                             <p class="text-primary-p">Places of interest</p>
-                            <span class="font-bold text-title">89</span>
+                            <span class="font-bold text-title"><?php 
+                            echo mysqli_num_rows(mysqli_query($conn, "SELECT * FROM Hospitals")) + mysqli_num_rows(mysqli_query($conn, "SELECT * FROM Schools"));
+                            ?></span>
                         </div>
                     </div>
                 </div>
@@ -85,19 +93,27 @@
 
                         <div class="charts_right_cards">
                             <div class="card_1">
-                                <h1><i class="fas fa-globe" aria-hidden="true"></i>&nbsp;<a href="deleteThings.php">Remove Users</a></h1>
+                                <h1><i class="fas fa-globe" aria-hidden="true"></i>&nbsp;<a href="/users">View Users</a></h1>
                             </div>
 
                             <div class="card_2">
-                                <h1><i class="fas fa-globe-asia" aria-hidden="true"></i>&nbsp;<a href="immigrantdet.php">Add Immigrant</a></h1>
+                                <h1><i class="fas fa-globe-asia" aria-hidden="true"></i>&nbsp;<a href="/immigrantdet">Add Immigrant</a></h1>
                             </div>
 
                             <div class="card_3">
-                                <h1><i class="fas fa-city" aria-hidden="true"></i>&nbsp;<a href="school.php">Add School</a></h1>
+                                <h1><i class="fas fa-city" aria-hidden="true"></i>&nbsp;<a href="/school">Add School</a></h1>
                             </div>
 
                             <div class="card_4">
-                                <h1><i class="fa fa-server" aria-hidden="true"></i>&nbsp;<a href="hospital.php">Add Hospital</a></h1>
+                                <h1><i class="fa fa-server" aria-hidden="true"></i>&nbsp;<a href="/hospital">Add Hospital</a></h1>
+                            </div>
+
+                            <div class="card_1">
+                                <h1><i class="fas fa-globe" aria-hidden="true"></i>&nbsp;<a href="/schools">View Schools</a></h1>
+                            </div>
+
+                            <div class="card_2">
+                                <h1><i class="fas fa-globe-asia" aria-hidden="true"></i>&nbsp;<a href="/hospitals">View Hospitals</a></h1>
                             </div>
                         </div>
                     </div>
