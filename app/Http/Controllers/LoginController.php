@@ -52,7 +52,7 @@ class LoginController extends Controller {
         }
         else {
             $_SESSION['alertMessage'] = "User doesn't exist. Please Signup and try again!";
-            return redirect()->back();
+            return redirect('/login');
         }
     }
 }

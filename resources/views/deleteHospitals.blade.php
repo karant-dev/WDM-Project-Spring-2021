@@ -8,7 +8,7 @@ session_start();
 
     <head>
         <title>
-            Delete Users
+            Hospitals
         </title>
         <link rel="stylesheet" href="../styles/deleteThings.css">
         <link rel="stylesheet" href="../styles/socialmedia.css">
@@ -43,7 +43,7 @@ session_start();
                             <td>{{$hospitals->hospital_name}}</td>
                             <td>{{$hospitals->specialty}}</td>
                             <td>{{$hospitals->zipcode}}</td>
-                            <td><a href="userdelete/{{$users->user_id}}">Delete</a></td>
+                            <td><a href="hospitaldelete/{{$hospitals->hospital_id}}">Delete</a></td>
                         </tr>
                         @endforeach
                     </table>

@@ -3,6 +3,11 @@ session_start();
 
 @include_once ('dbconnect');
 
+if(isset($_SESSION['alertMessage'])) {
+    $msg = $_SESSION['alertMessage'];
+    echo "<script type='text/javascript'>alert('$msg');</script>";
+    unset($_SESSION['alertMessage']);
+}
 // $username=$password="";
 
 // if (isset($_GET['login-button'])) {

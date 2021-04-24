@@ -84,15 +84,19 @@ Route::post('/login_user', 'App\Http\Controllers\LoginController@index');
 Route::get('/logout', 'App\Http\Controllers\PageController@logout');
 
 // User CRUD
-Route::get('/userdelete/{user_id}', 'App\Http\Controllers\SignupController@destroy');
 Route::post('/adduser', 'App\Http\Controllers\SignupController@store');
 Route::get('/users', 'App\Http\Controllers\SignupController@showusers');
+Route::get('/userdelete/{user_id}', 'App\Http\Controllers\SignupController@destroy');
 
-// School Hospital CRUD
-Route::get('/schools', 'App\Http\Controllers\SignupController@showschools');
-Route::get('/hospitals', 'App\Http\Controllers\SignupController@showhospitals');
+// School CRUD
 Route::post('/addschool', 'App\Http\Controllers\SchoolsController@store');
+Route::get('/schools', 'App\Http\Controllers\SchoolsController@showschools');
+Route::get('/schooldelete/{school_id}', 'App\Http\Controllers\SchoolController@destroy');
+
+// Hospital CRUD
 Route::post('/addhospital', 'App\Http\Controllers\HospitalsController@store');
+Route::get('/hospitals', 'App\Http\Controllers\HospitalsController@showhospitals');
+Route::get('/hospitaldelete/{hospital_id}', 'App\Http\Controllers\HospitalController@destroy');
 
 
 ?>

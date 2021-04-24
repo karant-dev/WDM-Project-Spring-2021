@@ -118,14 +118,6 @@ class SignupController extends Controller {
     public function showusers(Users $user) {
         return view('deleteUsers')->with('userArr', Users::all());
     }
-    
-    public function showschools(Schools $school) {
-        return view('deleteSchools')->with('schoolArr', Schools::all());
-    }
-
-    public function showhospitals(Hospitals $hospital) {
-        return view('deleteHospitals')->with('hospitalArr', Hospitals::all());
-    }
 
     public function destroy(Users $user, $user_id) {
         if(!isset($_SESSION)) { 

@@ -8,7 +8,7 @@ session_start();
 
     <head>
         <title>
-            Delete Users
+            Users
         </title>
         <link rel="stylesheet" href="../styles/deleteThings.css">
         <link rel="stylesheet" href="../styles/socialmedia.css">
@@ -30,7 +30,7 @@ session_start();
                 <td>
                     <table class="userTable">
                         <thead>
-                            <h2 style="padding: 10px">Active Users</h2>
+                            <h2 style="padding: 10px">Registered Users</h2>
                         </thead>
                         <tr>
                             <th>Username</th>

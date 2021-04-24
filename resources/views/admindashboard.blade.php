@@ -18,14 +18,13 @@ $conn = new mysqli($servername, $username, $password, $database);
     <link rel="stylesheet" href="{{ url('../styles/admindashboard.css') }}" />
     <link rel="stylesheet" href="{{ url('../styles/socialmedia.css') }}" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-    <title>Admin Dashboard</title>
+    <title>Admin</title>
 </head>
 
 <body id="body">
     <nav>
         <div class="topnav">
             <a href="#">Home</a>
-            <a href="#our-partners">Our Partners</a>
             <a href="https://immigrantportalblog.wordpress.com/">Blog</a>
             <a href="/contactus">Contact Us</a>
             <a href="/aboutus">About Us</a>

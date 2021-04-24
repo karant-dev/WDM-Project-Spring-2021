@@ -8,7 +8,7 @@ session_start();
 
     <head>
         <title>
-            Delete Users
+            Schools
         </title>
         <link rel="stylesheet" href="../styles/deleteThings.css">
         <link rel="stylesheet" href="../styles/socialmedia.css">
@@ -30,20 +30,20 @@ session_start();
                 <td>
                     <table class="userTable">
                         <thead>
-                            <h2 style="padding: 10px">Active Users</h2>
+                            <h2 style="padding: 10px">Registered Schools</h2>
                         </thead>
                         <tr>
-                            <th>Username</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
+                            <th>Name</th>
+                            <th>Max Study Level</th>
+                            <th>Zipcode</th>
                             <th>Action</th>
                         </tr>
-                        @foreach($userArr as $users)
+                        @foreach($schoolArr as $schools)
                         <tr>
-                            <td>{{$users->username}}</td>
-                            <td>{{$users->f_name}}</td>
-                            <td>{{$users->l_name}}</td>
-                            <td><a href="userdelete/{{$users->user_id}}">Delete</a></td>
+                            <td>{{$schools->school_name}}</td>
+                            <td>{{$schools->max_study_level}}</td>
+                            <td>{{$schools->zipcode}}</td>
+                            <td><a href="schoooldelete/{{$schools->school_id}}">Delete</a></td>
                         </tr>
                         @endforeach
                     </table>
