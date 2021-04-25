@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Contributions extends Model {
     use hasFactory;
     public $timestamps = false;
-    protected $primaryKey = 'contriution_id';
+    protected $primaryKey = 'contribution_id';
 }

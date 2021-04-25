@@ -1,6 +1,9 @@
 <?php
 
-session_start();
+if(!isset($_SESSION)) { 
+    session_start(); 
+}
+
 if(isset($_SESSION['alertMessage'])) {
     $msg = $_SESSION['alertMessage'];
     echo "<script type='text/javascript'>alert('$msg');</script>";

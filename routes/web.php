@@ -102,7 +102,8 @@ Route::get('/hospitaldelete/{hospital_id}', 'App\Http\Controllers\HospitalContro
 Route::get('/tips', 'App\Http\Controllers\ContributionsController@showtips');
 Route::get('/contributions', 'App\Http\Controllers\ContributionsController@showcontributions');
 Route::post('/addtip', 'App\Http\Controllers\ContributionsController@storetip');
-Route::post('/addcontribution', 'App\Http\Controllers\ContributionController@storecontribution');
+Route::post('/addcontribution', 'App\Http\Controllers\ContributionsController@storecontribution');
+Route::get('/contributiondelete/{contribution_id}', 'App\Http\Controllers\ContributionsController@destroy');
 
 ?>
 

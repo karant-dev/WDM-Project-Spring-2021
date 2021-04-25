@@ -7,13 +7,17 @@ use Illuminate\Http\Request;
 
 class ContributionsController extends Controller {
     public function showcontributions(Contributions $contributions) {
-        // TO-DO query only contributions from table and pass to view
+        if(!isset($_SESSION)) { 
+            session_start(); 
+        }
         return view('contributions')->with('contributionArr', Contributions::all());
     }
 
     public function showtips(Contributions $contributions) {
-        // TO-DO query only tips from table and pass to view
-        return view('contributions')->with('tipArr', Contributions::all());
+        if(!isset($_SESSION)) { 
+            session_start(); 
+        }
+        return view('tips')->with('tipArr', Contributions::all());
     }
 
     public function destroy(Contributions $contributions, $contribution_id) {
@@ -25,16 +29,36 @@ class ContributionsController extends Controller {
         return redirect()->back();    
     }
 
-    public function store(Request $request) {
+    public function storecontribution(Request $request) {
+        if(!isset($_SESSION)) { 
+            session_start(); 
+        }
+        $y='Contribution';
         $request->validate([
             'contribution-input' => 'required',
         ]);
-
         $contribution=new Contributions;
-        $contribution->hospital_name=$request->input('contribution-input');
-        // TO-DO pass user ID to the table
-        // To-DO pass string 'tip' or 'contribution' to table
+        $contribution->contribution=$request->input('contribution-input');
+        $contribution->user_id=$_SESSION['id'];
+        $contribution->$y;
         $contribution->save();
+            
+        return redirect()->back();
+    }
+
+    public function storetip(Request $request) {
+        if(!isset($_SESSION)) { 
+            session_start(); 
+        }
+        $x='Tip';
+        $request->validate([
+            'tip-input' => 'required',
+        ]);
+        $tip=new Contributions;
+        $tip->contribution=$request->input('tip-input');
+        $tip->user_id=$_SESSION['id'];
+        $tip->$x;
+        $tip->save();
             
         return redirect()->back();
     }

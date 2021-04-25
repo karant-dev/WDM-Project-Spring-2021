@@ -1,25 +1,22 @@
-
 <?php
 
-session_start();
-
-// include_once 'dbconnect.php';
-
-if (!isset($_SESSION['username'])){
-    header('location:Login.php');
+if(!isset($_SESSION)) { 
+    session_start(); 
 }
 
-$tip;
-$type='Tip';
-
-if (isset($_POST['post-button'])) {
-    $tip=$_POST['tip-input'];
-    $id=$_SESSION['id'];
-
-    $sqlinsert="INSERT INTO Contributions (contribution_type, contribution, user_id) VALUES ('$type','$tip',$id)";
-    
-    mysqli_query($conn, $sqlinsert);
+if(isset($_SESSION['alertMessage'])) {
+    $msg = $_SESSION['alertMessage'];
+    echo "<script type='text/javascript'>alert('$msg');</script>";
+    unset($_SESSION['alertMessage']);
 }
+
+$servername = "localhost";
+$username = "root";
+$password = "pwdpwd";
+$database = "immigrantsportal";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +43,7 @@ if (isset($_POST['post-button'])) {
     <ul id="top-options">
         <tr>
             <td>
-                <form method="POST" action="tips.php"><textarea id="tip-textarea" name="tip-input" placeholder="Enter your tip here for the visitors to see!"></textarea>
+                <form method="POST" action="addtip">@csrf<textarea id="tip-textarea" name="tip-input" placeholder="Enter your tip here for the visitors to see!"></textarea>
             </td>
             <td>
                 <button type="submit" name="post-button" id="post-tip">Post Tip</button></form>
@@ -70,45 +67,17 @@ if (isset($_POST['post-button'])) {
         </tr>
     </ul>
     <div id="tips-container">
+        @foreach($tipArr->reverse() as $tip)
+        @if("{$tip->contribution_type}" == 'Contribution')
+            @continue
+        @endif
         <div class="tip">
-            Posted by <?php $sqlfetch = "SELECT f_name FROM Users WHERE user_id IN (SELECT user_id FROM Contributions ORDER BY contribution_id DESC LIMIT 1)"; mysqli_query($conn, $sqlfetch); echo " at "; $sqlfetch = "SELECT posting_time FROM Contributions ORDER BY contribution_id DESC LIMIT 1"; mysqli_query($conn, $sqlfetch);?>
-            <hr>Here in the US, when you ask a restaurant employee for a glass of water, it'll almost always come with ice, regardless of the weather. So, if you do not want ice, be sure to mention that.
+            Posted by <?php echo mysqli_fetch_row(mysqli_query($conn, "SELECT username FROM Users WHERE user_id = '{$tip->user_id}'"))[0]; ?> at {{$tip->posting_time}}
+            <?php if(($_SESSION['role'] == 'admin') || ($_SESSION['role'] == 'superadmin')) { echo "<a style='float: right;' href='contributiondelete/{$tip->contribution_id}'>Delete</a> "; } ?>
+            <hr><br>
+            {{$tip->contribution}}
         </div>
-        <div class="tip">
-            Free refills! <br>-posted by Abhjeet on Mar 1 23:21
-            <hr>Most eateries that sell beverages usually provide you with refills for the beverage you bought, so be sure to ask!
-        </div>
-        <div class="tip">
-            Say 'Hello' or nod <br>-posted by Shreya on Feb 23 11:42
-            <hr>This one is important if you wanna fit in. No matter where you are in the States, when you pass someone by or are stuck in queue by the water cooler with a stranger, it is customery to offer a polite 'How you doing?' or at least a nod. Same
-            goes for leaving a place, if you buy a coffee, thank the barista and say 'Have a good one'. People aren't being excessively poilte, small talk is a part of the American culture.
-        </div>
-        <div class="tip">
-            Save by shopping at the big retailers!<br>-posted by Karan on Feb 23 11:42
-            <hr>For almost every item you are looking to buy, there almost certainly is an equivalent item provided by the behemoth retailers for a cheaper price under their own brand like AmazonBasics for Amazon or GreatValue for Walmart.
-        </div>
-        <div class="tip">
-            Credit History is important<br>-posted by Anurag on Feb 18 15:18
-            <hr>Try to build and maintain a healthy credit score and a varied credit history when in the USA. It is an important factor in determining things like your house leases, car payments and even the interest rate you can get for a loan!
-        </div>
-        <div class="tip">
-            Try the local favorties!<br>-posted by Sheetal on Feb 2 2:53
-            <hr>USA has some of the most delicious food and the great thing is different parts of the country are known of a variety of cuisines! In New York? Don't miss the Pizza, bagels and hot dogs! Heading south to Texas? Gotta try ranch dressing and
-            Buffalo wings! You get the idea!
-
-        </div>
-        <div class="tip">
-            Tip Title!<br>-posted by Immigrant1 on Jan 29 12:30
-            <hr>Main body of the tip that the immigrant has for the visitor of a country.
-        </div>
-        <div class="tip">
-            Another Tip Title!<br>-posted by Immigrant112 on Jan 9 1:10
-            <hr>Tips will be infinitely scrollable and will be added at the end of the page as new tips come in!
-        </div>
-        <div class="tip">
-            Sorting Tip!<br>-posted by Creator1124 on Jan 1 1:10
-            <hr>Tips can also be sorted by time, the user who posted them and the popularity of the tip.
-        </div>
+        @endforeach
     </div>
 
 </body>
