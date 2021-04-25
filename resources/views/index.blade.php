@@ -12,13 +12,12 @@
 
     <nav>
         <div class="topnav">
-            <a href="{{url('/')}}">Home</a>
-            <a href="{{url('immigrants')}}">Immigrant Services</a>
-            <a href="{{url('visitors')}}">Visitor Services</a>
-            <a href="#our-partners">Our Partners</a>
+            <a href="#">Home</a>
+            <a href="/login">Login</a>
+            <a href="/signup">Signup</a>
             <a href="https://immigrantportalblog.wordpress.com/">Blog</a>
-            <a href="{{url('contactus')}}">Contact Us</a>
-            <a href="{{url('aboutus')}}">About Us</a>
+            <a href="/contactus">Contact Us</a>
+            <a href="/aboutus">About Us</a>
         </div>
     </nav>
 

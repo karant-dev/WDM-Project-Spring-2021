@@ -70,7 +70,7 @@ if (isset($_POST['proceed-button'])) {
             <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <p>Skills</p>&nbsp;&nbsp;
             <input type="text" name="skills-field" placeholder="Skills"> &nbsp;&nbsp;&nbsp;
-            <p>Birth date</p>&nbsp;&nbsp;&nbsp;
+            <p>Birth date</p>&nbsp;
             <input type="text" name="dob-field" placeholder="Birth date">
             <br> &nbsp;&nbsp;&nbsp;&nbsp;
             <p>Work</p>&nbsp;&nbsp;&nbsp;

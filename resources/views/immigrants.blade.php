@@ -50,13 +50,13 @@ if(isset($_SESSION['alertMessage'])) {
             <div class="column">
                 <h6 style="font-size:20px; color: #3c1874;">TIPS<br> <br> <br> </h6>
                 <div class="zoom">
-                    <a href="#tips" style="color: black"><i class="fa fa-newspaper-o" style="font-size:70px"></i></a>
+                    <a href="/tips" style="color: black"><i class="fa fa-newspaper-o" style="font-size:70px"></i></a>
                 </div>
             </div>
             <div class="column">
                 <h6 style="font-size:20px; color: #3c1874;">CONTRIBUTIONS<br> <br><br> </h6>
                 <div class="zoom">
-                    <a href="#contributions" style="color: black"><i class="fa fa-suitcase" style="font-size:70px"></i></a>
+                    <a href="/contributions" style="color: black"><i class="fa fa-suitcase" style="font-size:70px"></i></a>
                 </div>
             </div>
             <div class="column">

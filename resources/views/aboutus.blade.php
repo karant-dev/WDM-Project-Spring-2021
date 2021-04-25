@@ -14,8 +14,6 @@
             <a href="/index">Home</a>
             <a href="/login">Login</a>
             <a href="/signup">Signup</a>
-            <a href="/immigrants">Immigrant Services</a>
-            <a href="/visitors">Visitor Services</a>
             <a href="https://immigrantportalblog.wordpress.com/">Blog</a>
             <a href="/contactus">Contact Us</a>
             <a href="#">About Us</a>
