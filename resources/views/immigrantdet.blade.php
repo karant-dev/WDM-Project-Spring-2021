@@ -29,6 +29,7 @@ if(isset($_SESSION['alertMessage'])) {
             <a href="<?php switch($_SESSION['role']){ case 'admin':echo '/admindashboard';break; case 'superadmin': echo '/superadmin';break; case 'immigrant': echo '/immigrants'; break; case 'visitor': echo '/visitors'; break;}?>">Home</a>
             <a href="#our-partners">Our Partners</a>
             <a href="https://immigrantportalblog.wordpress.com/">Blog</a>
+            <a href="https://chat-application-75cf2.web.app/">Chat</a>
             <a href="/contactus">Contact Us</a>
             <a href="/aboutus">About Us</a>
             <a href="/logout" style="float: right;">Logout</a>

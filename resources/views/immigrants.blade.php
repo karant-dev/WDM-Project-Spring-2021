@@ -31,9 +31,9 @@ if(isset($_SESSION['alertMessage'])) {
             <a href="/tips">Tips</a>
             <a href="/contributions">Contributions</a>
             <a href="https://immigrantportalblog.wordpress.com/">Blog</a>
+            <a href="https://chat-application-75cf2.web.app/">Chat</a>
             <a href="/contactus">Contact Us</a>
             <a href="/aboutus">About Us</a>
-            <a href="chat"> Chat </a>
             <a href="/logout" style="float: right;">Logout</a>
         </div>
     </nav>

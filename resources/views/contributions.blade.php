@@ -35,6 +35,7 @@ $conn = new mysqli($servername, $username, $password, $database);
             <a href="/tips">Tips</a>
             <a href="#">Contributions</a>
             <a href="https://immigrantportalblog.wordpress.com/">Blog</a>
+            <a href="https://chat-application-75cf2.web.app/">Chat</a>
             <a href="/contactus">Contact Us</a>
             <a href="/aboutus">About Us</a>
             <a href="/logout" style="float: right;">Logout</a>
