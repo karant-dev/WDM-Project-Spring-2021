@@ -30,7 +30,6 @@ if(isset($_SESSION['alertMessage'])) {
             <a href="/">Home</a>
             <a href="/login">Login</a>
             <a href="/signup">Signup</a>
-            <a href="#our-partners">Our Partners</a>
             <a href="https://immigrantportalblog.wordpress.com/">Blog</a>
             <a href="/contactus">Contact Us</a>
             <a href="/aboutus">About Us</a>

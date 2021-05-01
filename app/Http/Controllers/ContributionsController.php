@@ -40,7 +40,7 @@ class ContributionsController extends Controller {
         $contribution=new Contributions;
         $contribution->contribution=$request->input('contribution-input');
         $contribution->user_id=$_SESSION['id'];
-        $contribution->$y;
+        $contribution->contribution_type=$y;
         $contribution->save();
             
         return redirect()->back();
@@ -57,7 +57,7 @@ class ContributionsController extends Controller {
         $tip=new Contributions;
         $tip->contribution=$request->input('tip-input');
         $tip->user_id=$_SESSION['id'];
-        $tip->$x;
+        $tip->contribution_type=$x;
         $tip->save();
             
         return redirect()->back();

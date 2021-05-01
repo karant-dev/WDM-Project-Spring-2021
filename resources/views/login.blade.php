@@ -83,13 +83,12 @@ if(isset($_SESSION['alertMessage'])) {
 <body>
     <nav>
         <div class="topnav">
-            <a href="{{url('index')}}">Home</a>
-            <a href="{{url('login')}}">Login</a>
-            <a href="{{url('signup')}}">Signup</a>
-            <a href="#our-partners">Our Partners</a>
+            <a href="/">Home</a>
+            <a href="#">Login</a>
+            <a href="/signup">Signup</a>
             <a href="https://immigrantportalblog.wordpress.com/">Blog</a>
-            <a href="{{url('contactus')}}">Contact Us</a>
-            <a href="{{url('aboutus')}}">About Us</a>
+            <a href="/contactus">Contact Us</a>
+            <a href="/aboutus">About Us</a>
         </div>
     </nav>
 

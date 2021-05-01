@@ -1,6 +1,6 @@
 function sendEmail(email, subject, body) {
     Email.send({
-        SecureToken: "b0cac9fe-6d46-400e-9e43-1b9634ae9fc9",
+        SecureToken: "8c8ae59f-170d-4433-a119-f71f026e1d89",
         To: email,
         From: "wdmprojectspring2021@gmail.com",
         Subject: subject,

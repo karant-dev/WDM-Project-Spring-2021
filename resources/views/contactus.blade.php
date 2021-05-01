@@ -92,8 +92,6 @@
         var body = "<html><h2>Query for Immigrants Portal Submitted Successfully</h2><br><strong>Query: </strong><em>" + content + "</em></html>";
         sendEmail(email, subject, body);
 
-        form.action = "../index";
-
         return false;
     }
 </script>
